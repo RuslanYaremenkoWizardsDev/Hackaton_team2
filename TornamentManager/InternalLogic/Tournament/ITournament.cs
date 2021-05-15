@@ -15,7 +15,7 @@ namespace TornamentManager
         DateTime StartDateTime { get; set; }
         DateTime LastRegistrationDateTime { get; set; }
 
-
+        ETournam
 
 
 
