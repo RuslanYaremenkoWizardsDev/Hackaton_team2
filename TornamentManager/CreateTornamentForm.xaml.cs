@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,11 +18,26 @@ namespace TornamentManager
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class CreateTornamentForm : Window
+    public partial class CreateTournamentForm : Window
     {
-        public CreateTornamentForm()
+        private ObservableCollection<ETournamentModes> _modes;
+        public CreateTournamentForm()
         {
+            _modes = new ObservableCollection<ETournamentModes>((IEnumerable<ETournamentModes>)Enum.GetValues(typeof(ETournamentModes)));
             InitializeComponent();
+            TornamentModesComboBox.ItemsSource = _modes;
+            TornamentModesComboBox.SelectedItem = _modes[0];
+            StartDatePicker.Minimum = DateTime.Now;
         }
+
+        private void LastRegistrationDate_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            LastRegistrationDate.Maximum = StartDatePicker.Value;
+        }
+
+        //private void StartDatePicker_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        //{
+        //    
+        //}
     }
 }

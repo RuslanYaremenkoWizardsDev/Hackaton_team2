@@ -28,7 +28,7 @@ namespace TornamentManager
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CreateTornamentForm createTornamentForm = new CreateTornamentForm();
+            CreateTournamentForm createTornamentForm = new CreateTournamentForm();
             createTornamentForm.Show();
         }
     }
