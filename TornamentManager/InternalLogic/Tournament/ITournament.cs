@@ -15,7 +15,13 @@ namespace TornamentManager
         DateTime StartDateTime { get; set; }
         DateTime LastRegistrationDateTime { get; set; }
 
-        ETournam
+        ETournamentLevel TournamentLevel { get; set; }
+
+        int NumberOfParticipants { get; set; }
+
+
+
+        
 
 
 
