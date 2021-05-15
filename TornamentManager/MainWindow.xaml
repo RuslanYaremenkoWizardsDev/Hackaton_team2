@@ -25,7 +25,6 @@
                         <Button DockPanel.Dock="Left" Content="Load Tornaments" BorderBrush="Black" Background="#FFB7AEAE"  Height="30" Width="190" Margin="5,5,5,5"/>
                     </DockPanel>
                     <ListBox Grid.Row="1" Margin="5,5,5,5">
-                        <ListBoxItem Height="39" Background="#FF5F3333"/>
 
                     </ListBox>
 
@@ -33,7 +32,58 @@
 
             </TabItem>
             <TabItem Header="Tornament statistic">
+                <Grid Margin="5,5,5,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="28*"/>
+                        <RowDefinition Height="37*"/>
+                        <RowDefinition Height="538*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
 
+                                <ColumnDefinition Width="28*"/>
+                                <ColumnDefinition Width="28*"/>
+                                <ColumnDefinition Width="28*"/>
+                                <ColumnDefinition Width="28*"/>
+                                <ColumnDefinition Width="28*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,1,1">
+                                <TextBlock Text="Mode of tournaments" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                </TextBlock>
+                            </Border>
+                            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,1,1">
+                                <TextBlock Text="Number of tournaments" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                </TextBlock>
+                            </Border>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,1,1">
+                                <TextBlock Text="Active" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                </TextBlock>
+                            </Border>
+                            <Border Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,1">
+                                <TextBlock Text="Finished" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                </TextBlock>
+                            </Border>
+                            <Border Grid.Column="4" BorderBrush="Black" BorderThickness="1,1,1,1">
+                                <TextBlock Text="Cancelled" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                </TextBlock>
+                            </Border>
+
+                        </Grid>
+
+                    </Grid>
+                    <DockPanel Grid.Row="0" HorizontalAlignment="Center" Width="0">
+                        <!--<Button DockPanel.Dock="Left" Content="Create Tornaments" BorderBrush="Black" Background="#FFB7AEAE" Height="30" Width="190" Margin="5,5,5,5" />-->
+                    </DockPanel>
+                    <StackPanel Height="533" Background="#FFCFCCCC" Orientation="Horizontal" Grid.IsSharedSizeScope="False" Grid.Row="2" VerticalAlignment="Top" Margin="0,5,0,0"/>
+                    <TextBlock Text="Tournaments" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" FontSize="20" FontWeight="Bold" TextAlignment="Center" Margin="442,0,442,0" Grid.RowSpan="2"/>
+
+                </Grid>
             </TabItem>
 
         </TabControl>
