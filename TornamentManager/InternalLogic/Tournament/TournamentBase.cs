@@ -12,7 +12,7 @@ namespace TornamentManager
         string ITournament.Name { get; set ; }
         string ITournament.Description { get ; set ; }
         ETournamentModes ITournament.TornamentMode { get ; set ; }
-        string ITournament.Place { get ; set}
+        string ITournament.Place { get; set; }
         DateTime ITournament.StartDateTime { get; set ; }
         DateTime ITournament.LastRegistrationDateTime { get ; set; }
         ETournamentLevel ITournament.TournamentLevel { get ; set ; }
