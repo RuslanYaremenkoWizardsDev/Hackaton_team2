@@ -19,11 +19,9 @@ namespace TornamentManager
 
         int NumberOfParticipants { get; set; }
 
+        ETournamentScenarios Scenario { get; set; }
 
-
-        
-
-
+        IList<ITeamClass> Players { get; }
 
     }
 }
