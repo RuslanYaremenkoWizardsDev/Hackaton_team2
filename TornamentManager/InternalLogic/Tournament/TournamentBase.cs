@@ -12,6 +12,7 @@ namespace TornamentManager
         private string _description;
         private int _numberOfParticipants;
         private ETournamentModes _tournamentMode;
+        
 
 
         string ITournament.Name {
@@ -60,6 +61,11 @@ namespace TornamentManager
         int ITournament.NumberOfParticipants { get ; set ; }
         ETournamentScenarios ITournament.Scenario { get ; set ; }
         IList<ITeamClass> ITournament.Players { get; }
+
+        IList<IGameClass> ITournament.Games 
+        { 
+            get;
+        }
 
         public TournamentBase(string name, ETournamentModes tournamentMode, int numberOfParticipants)
         {
