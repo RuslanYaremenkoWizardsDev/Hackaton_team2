@@ -8,12 +8,8 @@
         Title="Tornament Manager" Height="660" Width="1030">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="9*"/>
             <RowDefinition Height="152*"/>
         </Grid.RowDefinitions>
-        <DockPanel Grid.Row="0" >
-            <Button DockPanel.Dock="Right" Content="Log out" HorizontalAlignment="Right" Width="200" Margin="5,5,5,5"/>
-        </DockPanel>
 
         <TabControl Grid.Row="1" Margin="0,3,0,0">
             <TabItem Header="Tornaments">
@@ -80,5 +76,6 @@
 
 
         </TabControl>
+        <Label x:Name="LogOutLabel" Content="Log out" HorizontalAlignment="Right" Margin="956,3,0,0" VerticalAlignment="Top" Height="23" Width="64" FontSize="10" BorderBrush="#FF8A0202" Foreground="Black" FontWeight="Bold"/>
     </Grid>
 </Window>
