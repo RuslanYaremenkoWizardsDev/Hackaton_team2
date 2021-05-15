@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TornamentManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="660" Width="1030">
+        Title="Tornament Manager" Height="660" Width="1030">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="9*"/>
@@ -16,7 +16,7 @@
         </DockPanel>
 
         <TabControl Grid.Row="1" Margin="0,3,0,0">
-            <TabItem Header="Tornament">
+            <TabItem Header="Tornaments">
                 <Grid Margin="5,5,5,5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="44*"/>
@@ -24,8 +24,8 @@
                     </Grid.RowDefinitions>
                     <DockPanel Grid.Row="0" HorizontalAlignment="Left">
                         <Button DockPanel.Dock="Left" Content="Create Tornament" BorderBrush="Black" Background="#FFB7AEAE" Height="30" Width="190" Margin="5,5,5,5" />
-                        <Button DockPanel.Dock="Left" Content="Save Tornament" BorderBrush="Black" Background="#FFB7AEAE"  Height="30" Width="190" Margin="5,5,5,5"/>
-                        <Button DockPanel.Dock="Left" Content="Load Tornament" BorderBrush="Black" Background="#FFB7AEAE"  Height="30" Width="190" Margin="5,5,5,5"/>
+                        <Button DockPanel.Dock="Left" Content="Save Tornaments" BorderBrush="Black" Background="#FFB7AEAE"  Height="30" Width="190" Margin="5,5,5,5"/>
+                        <Button DockPanel.Dock="Left" Content="Load Tornaments" BorderBrush="Black" Background="#FFB7AEAE"  Height="30" Width="190" Margin="5,5,5,5"/>
                     </DockPanel>
                     <ListBox Grid.Row="1" Margin="5,5,5,5">
 
@@ -37,6 +37,7 @@
             <TabItem Header="Tornament statistic">
             
             </TabItem>
+            
 
         </TabControl>
     </Grid>
