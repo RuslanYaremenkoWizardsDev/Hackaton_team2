@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TornamentManager.AutorizationLogic
 {
-    interface IActiveUser: IUser
+    public interface IActiveUser : IUser
     {
     }
 }

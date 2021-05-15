@@ -10,7 +10,7 @@ namespace TornamentManager.AutorizationLogic
     public interface IAutorization
     {
         void LoadUsers(StreamReader streamReader);
-
+        IActiveUser AutorizeUser(string login, string password);
 
     }
 }
