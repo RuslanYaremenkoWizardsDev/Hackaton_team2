@@ -28,7 +28,7 @@ namespace TornamentManager.Tornament
                 textBlock.Text = defaultText;
                 border.Child = textBlock;
                 Grid.SetColumn(border, i);
-                this.Children.Add(border);
+                Children.Add(border);
             }
         }
     }
