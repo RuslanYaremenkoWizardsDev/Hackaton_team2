@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TornamentManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="660" Width="1030">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="97*"/>
+            <RowDefinition Height="517*"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Content="Log out" HorizontalAlignment="Left" Width="200" Margin="825,5,0,5"/>
+        <DockPanel Grid.Row="1" Margin="0,2,0,0" Background="#FFEEF5FD">
+            <ToolBar DockPanel.Dock="Left" BorderBrush="Black">
+                <Button DockPanel.Dock="Left" Content="Create Tornament" BorderBrush="Black" Background="#FFB7AEAE" Height="71" Width="190" Margin="5,5,5,5" />
+                <Button DockPanel.Dock="Left" Content="second button" Background="#FFB2CBE7" BorderBrush="Black" Height="71" Width="190" Margin="5,5,5,5"/>
+                <TextBox DockPanel.Dock="Right"/>
+            </ToolBar>
+        </DockPanel>
 
+        <TabControl Grid.Row="2" Margin="0,3,0,0">
+            <TabItem Header="Tornament">
+                <ListBox>
+                </ListBox>
+            </TabItem>
+            <TabItem Header="Tornament statistic">
+                
+            </TabItem>
+            <TabItem Header="All participants">
+                
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
