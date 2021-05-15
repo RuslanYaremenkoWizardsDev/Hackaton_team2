@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 namespace TornamentManager
 {
     class TeamClass : ITeamClass
-
     {
         private string _name;
-        string ITeamClass.Name 
-        { 
+        string ITeamClass.Name
+        {
             get => _name;
             set
             {
@@ -24,6 +23,6 @@ namespace TornamentManager
         {
             _name = name;
         }
-        }
     }
 }
+

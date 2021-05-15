@@ -24,6 +24,5 @@ namespace TornamentManager
         IList<ITeamClass> Players { get; }
 
         IList<IGameClass> Games { get; }
-
     }
 }

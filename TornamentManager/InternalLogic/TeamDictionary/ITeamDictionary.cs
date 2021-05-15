@@ -14,6 +14,5 @@ namespace TornamentManager
         void SaveToFile(StreamWriter streamWriter);
 
         IList<ITeamClass> TeamList { get; }
-
     }
 }

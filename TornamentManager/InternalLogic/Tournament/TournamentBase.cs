@@ -13,8 +13,6 @@ namespace TornamentManager
         private int _numberOfParticipants;
         private ETournamentModes _tournamentMode;
 
-
-
         string ITournament.Name
         {
             get => _name;
@@ -27,12 +25,11 @@ namespace TornamentManager
                 }
                 else
                 {
-
                     _name = value;
                 }
-
             }
         }
+
         string ITournament.Description
         {
             get => _description;
@@ -48,6 +45,7 @@ namespace TornamentManager
                 }
             }
         }
+
         ETournamentModes ITournament.TournamentMode
         {
             get => _tournamentMode;
@@ -57,6 +55,7 @@ namespace TornamentManager
                 _tournamentMode = value;
             }
         }
+
         string ITournament.Place { get; set; }
         DateTime ITournament.StartDateTime { get; set; }
         DateTime ITournament.LastRegistrationDateTime { get; set; }
@@ -89,7 +88,6 @@ namespace TornamentManager
 
             if (tournamentMode == ETournamentModes.Cup)
             {
-
                 if (numberOfParticipants == 4 || numberOfParticipants == 8 || numberOfParticipants == 16 ||
                     numberOfParticipants == 32 || numberOfParticipants == 64 || numberOfParticipants == 128)
                 {
@@ -99,7 +97,6 @@ namespace TornamentManager
                 {
                     throw new ArgumentException("For Cup number of participants allowed only next options: 4, 8, 16, 32, 64");
                 }
-
             }
         }
     }

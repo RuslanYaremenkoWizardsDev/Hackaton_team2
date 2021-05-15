@@ -12,7 +12,6 @@ namespace TornamentManager
         private IList<ITeamClass> _teamList;
         IList<ITeamClass> ITeamDictionary.TeamList => _teamList;
 
-
         void ITeamDictionary.LoadFromFile(StreamReader streamReader)
         {
             throw new NotImplementedException();
