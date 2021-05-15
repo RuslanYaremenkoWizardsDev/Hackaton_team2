@@ -1,0 +1,34 @@
+﻿<Window x:Class="TornamentManager.CreateTornamentForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TornamentManager"
+        mc:Ignorable="d"
+        Title="Create Tornament Form" Height="500" Width="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
+            <TextBlock Text="Tornament Name:"  DockPanel.Dock="Top"/>
+            <TextBox DockPanel.Dock="Bottom"/>
+        </DockPanel>
+        <DockPanel Grid.Row ="1">
+            <TextBlock DockPanel.Dock="Top" Text="Tornament Description"/>
+            <ScrollViewer DockPanel.Dock="Bottom">
+                <TextBox MaxLength="10000" TextWrapping="Wrap"/>
+            </ScrollViewer>
+        </DockPanel>
+        
+        
+    </Grid>
+</Window>

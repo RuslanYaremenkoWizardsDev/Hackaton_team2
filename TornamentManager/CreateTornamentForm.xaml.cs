@@ -10,26 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TornamentManager.Tornament;
 
 namespace TornamentManager
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CreateTornamentForm : Window
     {
-        public MainWindow()
+        public CreateTornamentForm()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            CreateTornamentForm createTornamentForm = new CreateTornamentForm();
-            createTornamentForm.Show();
         }
     }
 }
