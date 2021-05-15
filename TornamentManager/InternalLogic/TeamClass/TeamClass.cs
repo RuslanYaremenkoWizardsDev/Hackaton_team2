@@ -9,6 +9,20 @@ namespace TornamentManager
     class TeamClass : ITeamClass
 
     {
-        string ITeamClass.Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        private string _name;
+        string ITeamClass.Name 
+        { 
+            get => _name;
+            set
+            {
+                _name = value;
+            }
+
+        }
+
+        public TeamClass(string name)
+        {
+            _name = name;
+        }
     }
 }
