@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace TornamentManager
 {
-    public enum ETournamentTypes
+    interface ITournament
     {
-        Cup=1,
-        Championship=2
+        string Name { get; set; }
+        string Description { get; set; }
+        Etournam
+
     }
 }
