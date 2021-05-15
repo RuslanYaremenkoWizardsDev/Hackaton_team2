@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TornamentManager
 {
-    interface IWorld
+    public interface IWorld
     {
         public static IWorld WorldInstance {get; }
     }
