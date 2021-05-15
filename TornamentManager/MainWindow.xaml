@@ -12,7 +12,7 @@
             <RowDefinition Height="152*"/>
         </Grid.RowDefinitions>
 
-        <TabControl Grid.Row="1" Margin="0,3,0,0" Background="#FFC7C1C1">
+        <TabControl Grid.Row="1" Margin="0,3,0,0" Background="#FFC7C1C1" SelectionChanged="TabControl_SelectionChanged">
             <TabItem Header="Tornaments">
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1">
@@ -71,13 +71,13 @@
                     <ScrollViewer  Grid.Row="2">
                         <StackPanel x:Name="TornamentsList" Background="#FFE2E2E2" Margin="2,2,2,2"/>
                     </ScrollViewer>
-                    
+
 
 
                 </Grid>
 
             </TabItem>
-            <TabItem Header="Tornament statistic">
+            <TabItem Header="Tornaments statistic">
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#FFF0F0F0"/>
@@ -87,12 +87,18 @@
 
                 <Grid Margin="5,5,5,5">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="28*"/>
-                        <RowDefinition Height="37*"/>
-                        <RowDefinition Height="538*"/>
+                        <RowDefinition Height="46*"/>
+                        <RowDefinition Height="557*"/>
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="1">
+                    <Grid Grid.Row="1" Margin="0,34,0,0">
                         <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="45*"/>
+                                <RowDefinition Height="45*"/>
+                                <RowDefinition Height="45*"/>
+                                <RowDefinition Height="45*"/>
+                                <RowDefinition Height="100*"/>
+                            </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
 
                                 <ColumnDefinition Width="28*"/>
@@ -101,40 +107,115 @@
                                 <ColumnDefinition Width="28*"/>
                                 <ColumnDefinition Width="28*"/>
                             </Grid.ColumnDefinitions>
-                            <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,1,1">
-                                <TextBlock Text="Mode of tournaments" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="Mode of tournaments" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
 
                                 </TextBlock>
                             </Border>
-                            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,1,1">
-                                <TextBlock Text="Number of tournaments" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="Cup" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+
+                                </TextBlock>
+                            </Border>
+                            <Border Grid.Row="2" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0" Grid.RowSpan="1">
+                                <TextBlock Text="Championship" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+
+                                </TextBlock>
+                            </Border>
+                            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="Number " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+
+                                </TextBlock>
+                            </Border>
+                            <Border Grid.Row ="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock x:Name="Cup_Number" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+
+                                </TextBlock>
+                            </Border>
+                            <Border Grid.Row ="1" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+
+                                </TextBlock>
+                            </Border>
+                            <Border Grid.Row ="1" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+
+                                </TextBlock>
+                            </Border>
+                            <Border Grid.Row ="1" Grid.Column="4" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+
+                                </TextBlock>
+                            </Border>
+                            <Border Grid.Row ="2" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+
+                                </TextBlock>
+                            </Border>
+                            <Border Grid.Row ="2" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+
+                                </TextBlock>
+                            </Border>
+                            <Border Grid.Row ="2" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+
+                                </TextBlock>
+                            </Border>
+                            <Border Grid.Row ="2" Grid.Column="4" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
 
                                 </TextBlock>
                             </Border>
                             <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,1,1">
-                                <TextBlock Text="Active" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="Active" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
 
                                 </TextBlock>
                             </Border>
-                            <Border Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,1">
-                                <TextBlock Text="Finished" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Border Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="Finished" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
 
 
                                 </TextBlock>
                             </Border>
-                            <Border Grid.Column="4" BorderBrush="Black" BorderThickness="1,1,1,1">
-                                <TextBlock Text="Cancelled" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Border Grid.Column="4" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="Cancelled" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
 
                                 </TextBlock>
                             </Border>
+                            <Border Grid.Row="3" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="Total" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+
+                                </TextBlock>
+                            </Border>
+                            <Border Grid.Row="3" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+
+                                </TextBlock>
+                            </Border>
+                            <Border Grid.Row="3" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+
+                                </TextBlock>
+                            </Border>
+                            <Border Grid.Row="3" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+
+                                </TextBlock>
+                            </Border>
+                            <Border Grid.Row="3" Grid.Column="4" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+
+                                </TextBlock>
+                            </Border>
+
 
                         </Grid>
 
                     </Grid>
                     <DockPanel Grid.Row="0" HorizontalAlignment="Center" Width="0">
                     </DockPanel>
-                    <StackPanel Height="533" Background="#FFCFCCCC" Orientation="Horizontal" Grid.IsSharedSizeScope="False" Grid.Row="2" VerticalAlignment="Top" Margin="0,5,0,0"/>
-                    <TextBlock Text="Tournaments" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" FontSize="20" FontWeight="Bold" TextAlignment="Center" Margin="442,0,442,0" Grid.RowSpan="2"/>
+                    <TextBlock Text="Tournaments" TextWrapping="Wrap" VerticalAlignment="Center" Height="43" FontSize="20" FontWeight="Bold" TextAlignment="Center" Margin="442,0,419,0"/>
 
                 </Grid>
             </TabItem>

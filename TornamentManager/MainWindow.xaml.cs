@@ -30,5 +30,10 @@ namespace TornamentManager
         {
             TornamentsList.Children.Add(new TornamentBox());
         }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
