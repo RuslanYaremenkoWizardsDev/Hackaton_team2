@@ -8,14 +8,11 @@
         Title="MainWindow" Height="660" Width="1030">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="9*"/>
             <RowDefinition Height="152*"/>
         </Grid.RowDefinitions>
-        <DockPanel Grid.Row="0" >
-            <Button DockPanel.Dock="Right" Content="Log out" HorizontalAlignment="Right" Width="200" Margin="5,5,5,5"/>
-        </DockPanel>
 
-        <TabControl Grid.Row="1" Margin="0,3,0,0">
+
+        <TabControl Grid.Row="1" Margin="0,3,0,0" HorizontalAlignment="Stretch">
             <TabItem Header="Tornament">
                 <Grid Margin="5,5,5,5">
                     <Grid.RowDefinitions>
@@ -23,11 +20,12 @@
                         <RowDefinition Height="523*"/>
                     </Grid.RowDefinitions>
                     <DockPanel Grid.Row="0" HorizontalAlignment="Left">
-                        <Button DockPanel.Dock="Left" Content="Create Tornament" BorderBrush="Black" Background="#FFB7AEAE" Height="30" Width="190" Margin="5,5,5,5" />
-                        <Button DockPanel.Dock="Left" Content="Save Tornament" BorderBrush="Black" Background="#FFB7AEAE"  Height="30" Width="190" Margin="5,5,5,5"/>
-                        <Button DockPanel.Dock="Left" Content="Load Tornament" BorderBrush="Black" Background="#FFB7AEAE"  Height="30" Width="190" Margin="5,5,5,5"/>
+                        <Button DockPanel.Dock="Left" Content="Create Tornaments" BorderBrush="Black" Background="#FFB7AEAE" Height="30" Width="190" Margin="5,5,5,5" />
+                        <Button DockPanel.Dock="Left" Content="Save Tornaments" BorderBrush="Black" Background="#FFB7AEAE"  Height="30" Width="190" Margin="5,5,5,5"/>
+                        <Button DockPanel.Dock="Left" Content="Load Tornaments" BorderBrush="Black" Background="#FFB7AEAE"  Height="30" Width="190" Margin="5,5,5,5"/>
                     </DockPanel>
                     <ListBox Grid.Row="1" Margin="5,5,5,5">
+                        <ListBoxItem Height="39" Background="#FF5F3333"/>
 
                     </ListBox>
 
@@ -35,9 +33,10 @@
 
             </TabItem>
             <TabItem Header="Tornament statistic">
-            
+
             </TabItem>
 
         </TabControl>
+        <Label x:Name="LogOutLabel" Content="Log out" HorizontalAlignment="Right" Margin="956,3,0,0" VerticalAlignment="Top" Height="23" Width="64" FontSize="10" BorderBrush="#FF8A0202" Foreground="Black" FontWeight="Bold"/>
     </Grid>
 </Window>
