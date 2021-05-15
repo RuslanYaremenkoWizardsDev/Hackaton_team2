@@ -10,7 +10,12 @@ namespace TornamentManager
     {
         string Name { get; set; }
         string Description { get; set; }
-        Etournam
+        ETournamentModes TornamentMode { get; set; }
+        string Place { get; set; }
+        DateTime StartDateTime { get; set; }
+        DateTime LastRegistrationDateTime { get; set; }
+
+
 
     }
 }
