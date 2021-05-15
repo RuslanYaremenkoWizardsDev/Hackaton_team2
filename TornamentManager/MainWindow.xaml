@@ -4,15 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TornamentManager"
+        xmlns:tornament="clr-namespace:TornamentManager.Tornament"
         mc:Ignorable="d"
-        Title="Tornament Manager" Height="660" Width="1030">
+        Title="Tornament Manager" Height="660" Width="1030" Background="#FFC7C1C1">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="152*"/>
         </Grid.RowDefinitions>
 
-        <TabControl Grid.Row="1" Margin="0,3,0,0">
+        <TabControl Grid.Row="1" Margin="0,3,0,0" Background="#FFC7C1C1">
             <TabItem Header="Tornaments">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FFC7C1C1" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
                 <Grid Margin="5,5,5,5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="44*"/>
@@ -20,11 +27,11 @@
                         <RowDefinition Height="523*"/>
                     </Grid.RowDefinitions>
                     <DockPanel Grid.Row="0" HorizontalAlignment="Left">
-                        <Button DockPanel.Dock="Left" Content="Create Tornament" BorderBrush="Black" Background="#FFB7AEAE" Height="30" Width="190" Margin="5,5,5,5" />
+                        <Button DockPanel.Dock="Left" Content="Create Tornament" BorderBrush="Black" Background="#FFB7AEAE" Height="30" Width="190" Margin="5,5,5,5" Click="Button_Click" />
                         <Button DockPanel.Dock="Left" Content="Save Tornaments" BorderBrush="Black" Background="#FFB7AEAE"  Height="30" Width="190" Margin="5,5,5,5"/>
                         <Button DockPanel.Dock="Left" Content="Load Tornaments" BorderBrush="Black" Background="#FFB7AEAE"  Height="30" Width="190" Margin="5,5,5,5"/>
                     </DockPanel>
-                    <Grid Grid.Row="1" Height="20" Margin="5,5,5,5">
+                    <Grid Grid.Row="1" Height="20" Margin="2,2,20,2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -35,7 +42,7 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        
+
                         <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,1,1">
                             <TextBlock  Text="Name"/>
                         </Border>
@@ -46,7 +53,7 @@
                             <TextBlock Text="Place"/>
                         </Border>
                         <Border Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,1">
-                            <TextBlock Text="Last Registration Date"/>
+                            <TextBlock Text="Last Reg. Date"/>
                         </Border>
                         <Border Grid.Column="4" BorderBrush="Black" BorderThickness="1,1,1,1">
                             <TextBlock Text="State"/>
@@ -61,16 +68,22 @@
                             <TextBlock Text="Scenario"/>
                         </Border>
                     </Grid>
-                    <ListBox Grid.Row="2" Margin="5,5,5,5">
-                        <ListBoxItem Background="#FF9A9090" BorderBrush="Black" Height="40">
+                    <ScrollViewer  Grid.Row="2">
+                        <StackPanel x:Name="TornamentsList" Background="#FFE2E2E2" Margin="2,2,2,2"/>
+                    </ScrollViewer>
+                    
 
-                        </ListBoxItem>
-                    </ListBox>
 
                 </Grid>
 
             </TabItem>
             <TabItem Header="Tornament statistic">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FFC7C1C1" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
 
             </TabItem>
 
