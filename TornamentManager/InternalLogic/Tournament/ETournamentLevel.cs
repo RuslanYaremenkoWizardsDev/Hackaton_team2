@@ -8,8 +8,8 @@ namespace TornamentManager
 {
     public enum ETournamentLevel
     {
-        Advanced =1,
+        Advanced = 1,
         Middle = 2,
-        Beginner=3
+        Beginner = 3
     }
 }

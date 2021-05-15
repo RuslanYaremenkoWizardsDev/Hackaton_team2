@@ -24,5 +24,6 @@ namespace TornamentManager
         {
             _name = name;
         }
+        }
     }
 }
