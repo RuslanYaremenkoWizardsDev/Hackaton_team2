@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TornamentManager.Tornament;
 
 namespace TornamentManager
 {
@@ -23,6 +24,11 @@ namespace TornamentManager
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            TornamentsList.Children.Add(new TornamentBox());
         }
     }
 }
