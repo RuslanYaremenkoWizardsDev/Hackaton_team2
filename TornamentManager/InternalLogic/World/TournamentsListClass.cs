@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace TornamentManager
 {
     public class TournamentsListClass : ITournamentsList
     {
-        private IList<ITournament> _tournaments;
+        private IList<ITournament> _tournaments = new List<ITournament>();
 
         void ITournamentsList.AddTournament(ITournament tournament)
         {

@@ -9,11 +9,10 @@ using System.Windows.Media;
 
 namespace TornamentManager.Tornament
 {
-    public class TornamentBox : Grid
+    public class TournamentBox : Grid
     {
-
         private const int countOfColumn = 8;
-        public TornamentBox(ITournament tournament)
+        public TournamentBox(ITournament tournament)
         {
             Thickness marginThickness = new Thickness(2);
             Margin = marginThickness;
@@ -27,7 +26,7 @@ namespace TornamentManager.Tornament
             border.BorderBrush = Brushes.Black;
             border.BorderThickness = new Thickness(1);
             TextBlock textBlock = new TextBlock();
-            textBlock.Name = "Tournament Name";
+            textBlock.Name = "TournamentName";
             textBlock.Text = tournament.Name;
             border.Child = textBlock;
             Grid.SetColumn(border, 0);
@@ -50,17 +49,17 @@ namespace TornamentManager.Tornament
             textBlock.Name = "Place";
             textBlock.Text = tournament.Place;
             border.Child = textBlock;
-            Grid.SetColumn(border, 1);
+            Grid.SetColumn(border, 2);
             Children.Add(border);
 
             border = new Border();
             border.BorderBrush = Brushes.Black;
             border.BorderThickness = new Thickness(1);
             textBlock = new TextBlock();
-            textBlock.Name = "Last Registration Date";
+            textBlock.Name = "LastRegistrationDate";
             textBlock.Text = tournament.LastRegistrationDateTime.ToString();
             border.Child = textBlock;
-            Grid.SetColumn(border, 1);
+            Grid.SetColumn(border, 3);
             Children.Add(border);
 
             border = new Border();
@@ -70,7 +69,7 @@ namespace TornamentManager.Tornament
             textBlock.Name = "State";
             textBlock.Text = "Active";
             border.Child = textBlock;
-            Grid.SetColumn(border, 1);
+            Grid.SetColumn(border, 4);
             Children.Add(border);
 
             border = new Border();
@@ -80,7 +79,7 @@ namespace TornamentManager.Tornament
             textBlock.Name = "Level";
             textBlock.Text = tournament.TournamentLevel.ToString();
             border.Child = textBlock;
-            Grid.SetColumn(border, 1);
+            Grid.SetColumn(border, 5);
             Children.Add(border);
 
             border = new Border();
@@ -90,7 +89,7 @@ namespace TornamentManager.Tornament
             textBlock.Name = "Participants";
             textBlock.Text = tournament.NumberOfParticipants.ToString();
             border.Child = textBlock;
-            Grid.SetColumn(border, 1);
+            Grid.SetColumn(border, 6);
             Children.Add(border);
 
             border = new Border();
@@ -100,7 +99,7 @@ namespace TornamentManager.Tornament
             textBlock.Name = "Scenario";
             textBlock.Text = tournament.Scenario.ToString();
             border.Child = textBlock;
-            Grid.SetColumn(border, 1);
+            Grid.SetColumn(border, 7);
             Children.Add(border);
         }
     }

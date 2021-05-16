@@ -21,7 +21,6 @@ namespace TornamentManager
     /// </summary>
     public partial class CreateTournamentForm : Window
     {
-        ITournament _tournament;
         public CreateTournamentForm()
         {
             InitializeComponent();
@@ -49,7 +48,7 @@ namespace TornamentManager
         private void StartDatePicker_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             LastRegistrationDatePicker.Maximum = StartDatePicker.Value;
-            if(StartDatePicker.Value != null && !LastRegistrationDatePicker.IsEnabled)
+            if (StartDatePicker.Value != null && !LastRegistrationDatePicker.IsEnabled)
             {
                 LastRegistrationDatePicker.IsEnabled = true;
             }
@@ -107,49 +106,54 @@ namespace TornamentManager
             }
         }
 
+        private bool CheckIfRequiredFieldsAreNotEmpty()
+        {
+            bool check = false;
+
+            if (TournamentName.Text.Length != 0
+               && StartDatePicker.Value != null
+               && LastRegistrationDatePicker.Value != null)
+            {
+                check = true;
+            }
+
+            return check;
+        }
         private void BtnCreateTournament_Click(object sender, RoutedEventArgs e)
         {
-            if (TornamentModesComboBox.Text == "Cup")
+            if (CheckIfRequiredFieldsAreNotEmpty())
             {
-                _tournament = new TournamentCup(TournamentName.Text, ETournamentModes.Cup, Convert.ToInt32(NumberOfParticipantsComboBox.Text));
-            }
-            else if (TornamentModesComboBox.Text == "Championship")
-            {
-                _tournament = new TournamentChampionship(TournamentName.Text, ETournamentModes.Championship, Convert.ToInt32(NumberOfParticipantsComboBox.Text));
-            }
+                ITournament tournament;
 
-            _tournament.Description = TournamentDescription.Text;
-            _tournament.Place = TournamentPlace.Text;
-            _tournament.StartDateTime = (DateTime)StartDatePicker.Value;
-            _tournament.LastRegistrationDateTime = (DateTime)LastRegistrationDatePicker.Value;
+                switch ((ETournamentModes)TornamentModesComboBox.SelectedItem)
+                {
+                    case ETournamentModes.Cup:
+                        tournament = new TournamentCup(TournamentName.Text, ETournamentModes.Cup, Convert.ToInt32(NumberOfParticipantsComboBox.Text));
+                        break;
 
-            switch (TournamentLevelsComboBox.Text)
-            {
-                case "Advanced":
-                    _tournament.TournamentLevel = ETournamentLevel.Advanced;
-                    break;
-                case "Middle":
-                    _tournament.TournamentLevel = ETournamentLevel.Middle;
-                    break;
-                case "Beginner":
-                    _tournament.TournamentLevel = ETournamentLevel.Beginner;
-                    break;
+                    case ETournamentModes.Championship:
+                        tournament = new TournamentChampionship(TournamentName.Text, ETournamentModes.Championship, Convert.ToInt32(NumberOfParticipantsComboBox.Text));
+                        break;
+
+                    default:
+                        tournament = new TournamentCup(TournamentName.Text, ETournamentModes.Cup, Convert.ToInt32(NumberOfParticipantsComboBox.Text));
+                        break;
+                }
+
+                tournament.Description = TournamentDescription.Text;
+                tournament.Place = TournamentPlace.Text;
+                tournament.StartDateTime = (DateTime)StartDatePicker.Value;
+                tournament.LastRegistrationDateTime = (DateTime)LastRegistrationDatePicker.Value;
+
+                tournament.TournamentLevel = (ETournamentLevel)TournamentLevelsComboBox.SelectedItem;
+                tournament.Scenario = (ETournamentScenarios)TournamentScenariosComboBox.SelectedItem;
+
+                World world = (World)World.WorldInstance;
+
+                world.TournamentsList.AddTournament(tournament);
+
+                this.Close();
             }
-
-            switch (TournamentScenariosComboBox.Text)
-            {
-                case "OneMatchConfrontation":
-                    _tournament.Scenario = ETournamentScenarios.OneMatchConfrontation;
-                    break;
-                case "TwoMatchConfronataion":
-                    _tournament.Scenario = ETournamentScenarios.TwoMatchConfronataion;
-                    break;
-                case "ToThreeWins":
-                    _tournament.Scenario = ETournamentScenarios.ToThreeWins;
-                    break;
-            }
-
-            this.Close();
         }
     }
 }
