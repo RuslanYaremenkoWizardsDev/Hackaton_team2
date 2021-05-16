@@ -138,12 +138,43 @@ namespace TornamentManager.AutorizationLogic
 
         public bool validateLogin(string login)
         {
-            return universalValidate(login);
+            if( universalValidate(login))
+
+            {
+                if (login.Length>=1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
         public bool validatePassword(string password)
         {
-            return universalValidate(password);
+            if (universalValidate(password))
+
+            {
+                if (password.Length >= 3)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private bool universalValidate(string str)
@@ -156,16 +187,26 @@ namespace TornamentManager.AutorizationLogic
                 "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"
             };
             bool allCharsAllowed = true;
-            for (int i = 0; i <= str.Length - 1; i++)
+            
+            if (str!=null)
             {
-                string currentChar = str.Substring(i, 1);
-                if (Array.IndexOf(allowedChars, currentChar.ToLower()) == -1)
+                for (int i = 0; i <= str.Length - 1; i++)
                 {
-                    allCharsAllowed = false;
-                    break;
+                    string currentChar = str.Substring(i, 1);
+                    if (Array.IndexOf(allowedChars, currentChar.ToLower()) == -1)
+                    {
+                        allCharsAllowed = false;
+                        break;
+                    }
                 }
+                return allCharsAllowed;
             }
-            return allCharsAllowed;
+            else
+            {
+                return false;
+            }
+            
+            
         }
     }
 }
