@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TornamentManager"
         xmlns:tornament="clr-namespace:TornamentManager.Tornament"
-        xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock" x:Class="TornamentManager.MainWindow"
+        xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock" 
         mc:Ignorable="d"
         Title="Tournament Manager" Height="660" Width="1030" Background="#FFC7C1C1"  >
     <Grid>

@@ -11,37 +11,135 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TornamentManager.AutorizationLogic;
 
-namespace TornamentManager
+
+namespace TornamentManager 
 {
     /// <summary>
     /// Логика взаимодействия для AuthorizationForm.xaml
     /// </summary>
+
     public partial class AuthorizationForm : Window
     {
+        Autorization autorization = new Autorization();
+        bool _isBtnSignUpPressed = false;
+        MainWindow mainWindow = new MainWindow();
+
         public AuthorizationForm()
         {
             InitializeComponent();
             Confirm_lable.Opacity = 0;
             Confirm_passwordBox.Opacity = 0;
             Cancel_btn.Opacity = 0;
+            OldPass_label.Opacity = 0;
+            OldPass_passwordBox.Opacity = 0;
+            Change_btn.Opacity = 0;
         }
 
         private void SignUp_btn_Click(object sender, RoutedEventArgs e)
         {
-            Confirm_lable.Opacity = 100;
-            Confirm_passwordBox.Opacity = 100;
-            Password_lable.Content = "New password";
-            SignIn_btn.Opacity = 0;
-            Cancel_btn.Opacity = 100;
+            if (!_isBtnSignUpPressed)
+            {
+                Confirm_lable.Opacity = 100;
+                Confirm_passwordBox.Opacity = 100;
+                Password_lable.Content = "Password";
+                SignIn_btn.Opacity = 0;
+                Cancel_btn.Opacity = 100;
+                Name_label.Content = "Singing Up";
+            }
+            else
+            {
+                if (!autorization.validateLogin(Login_textBox.Text))
+                {
+                    Login_textBox.Background = Brushes.Red;
+                }
+                else if (autorization.validateLogin(Login_textBox.Text))
+                {
+                    Login_textBox.Background = Brushes.White;
+                }
+                if(!autorization.validatePassword(Password_passwordBox.Password))
+                {
+                    Password_passwordBox.Background = Brushes.Red;
+                }
+                else if (autorization.validatePassword(Password_passwordBox.Password))
+                {
+                    Password_passwordBox.Background = Brushes.White;
+                }
+                if (Password_passwordBox.Password != Confirm_passwordBox.Password)
+                {
+                    Confirm_passwordBox.Background = Brushes.Red;
+                }
+                else if (Password_passwordBox.Password == Confirm_passwordBox.Password)
+                {
+                    Confirm_passwordBox.Background = Brushes.White;
+                }
+                if(autorization.validateLogin(Login_textBox.Text) && autorization.validatePassword(Password_passwordBox.Password) && Password_passwordBox.Password == Confirm_passwordBox.Password)
+                {
+                    autorization.CreateUser(Login_textBox.Text, Password_passwordBox.Password, EUserPrivileges.Admin);
+                    Login_textBox.Text = null;
+                    Password_passwordBox.Password = null;
+                    Confirm_passwordBox.Password = null;
+                    Password_passwordBox.Background = Brushes.White;
+                    Confirm_passwordBox.Background = Brushes.White;
+                    OldPass_passwordBox.Background = Brushes.White;
+                }   
+            }
+            _isBtnSignUpPressed = true;
         }
 
         private void Cancel_btn_Click(object sender, RoutedEventArgs e)
         {
+            _isBtnSignUpPressed = false;
             Confirm_lable.Opacity = 0;
             Confirm_passwordBox.Opacity = 0;
             Cancel_btn.Opacity = 0;
             SignIn_btn.Opacity = 100;
+            Password_lable.Content = "Password";
+            Name_label.Content = "Authorization";
+            Login_textBox.Text = null;
+            Password_passwordBox.Password = null;
+            Confirm_passwordBox.Password = null;
+            OldPass_passwordBox.Password = null;
+            Login_textBox.Background = Brushes.White;
+            Password_passwordBox.Background = Brushes.White;
+            Confirm_passwordBox.Background = Brushes.White;
+            OldPass_passwordBox.Background = Brushes.White;
+        }
+
+        private void Change_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SignIn_btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (!autorization.validateLogin(Login_textBox.Text))
+            {
+                Login_textBox.Background = Brushes.Red;
+            }
+            else if (autorization.validateLogin(Login_textBox.Text))
+            {
+                Login_textBox.Background = Brushes.White;
+            }
+            if (!autorization.validatePassword(Password_passwordBox.Password))
+            {
+                Password_passwordBox.Background = Brushes.Red;
+            }
+            else if (autorization.validatePassword(Password_passwordBox.Password))
+            {
+                Password_passwordBox.Background = Brushes.White;
+            }
+            if (autorization.validateLogin(Login_textBox.Text) && autorization.validatePassword(Password_passwordBox.Password) && Password_passwordBox.Password == Confirm_passwordBox.Password)
+            {
+                autorization.AutorizeUser(Login_textBox.Text, Password_passwordBox.Password);
+                Login_textBox.Text = null;
+                Password_passwordBox.Password = null;
+                Password_passwordBox.Background = Brushes.White;
+                Confirm_passwordBox.Background = Brushes.White;
+                mainWindow.Show();
+                
+            }
         }
     }
 }
