@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TornamentManager.AutorizationLogic
 {
-    class Autorization : IAutorization
+    public class Autorization : IAutorization
     {
         private List<IUser> usersList = new List<IUser>();
         public IActiveUser AutorizeUser(string login, string password)
