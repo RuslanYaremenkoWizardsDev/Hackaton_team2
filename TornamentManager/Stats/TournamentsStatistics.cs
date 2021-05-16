@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace TornamentManager.Stats
 {
-    class TournamentStatistics
+    class TournamentsStatistics
     {
-        public TournamentStatsInfo CupStats { get; }
-        public TournamentStatsInfo ChampionshipStats { get; }
-        public TournamentStatsInfo TotalStats { get; }
+        public TournamentsStatsInfo CupStats { get; }
+        public TournamentsStatsInfo ChampionshipStats { get; }
+        public TournamentsStatsInfo TotalStats { get; }
     }
 }
