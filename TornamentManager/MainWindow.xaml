@@ -198,8 +198,8 @@
             <Label.ContextMenu>
                 <ContextMenu>
                     <TextBlock x:Name="UserNameTextBlock" Text="User"/>
-                    <Button Content="Change Password" Height="20"/>
-                    <Button Content="LogOut" Height="20"/>
+                    <Button x:Name="ChangePassButton" Content="Change Password" Height="20" Click="ChangePassButton_Click"/>
+                    <Button x:Name="LogOutButton" Content="LogOut" Height="20" Click="LogOutButton_Click"/>
                 </ContextMenu>
             </Label.ContextMenu>
         </Label>
