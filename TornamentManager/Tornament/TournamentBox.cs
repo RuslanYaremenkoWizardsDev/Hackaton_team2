@@ -11,9 +11,11 @@ namespace TornamentManager.Tornament
 {
     public class TournamentBox : Grid
     {
-        private const int countOfColumn = 9;
+        public int ID { get; private set; }
+        private const int countOfColumn = 10;
         public TournamentBox(ITournament tournament)
         {
+            ID = tournament.ID;
             Thickness marginThickness = new Thickness(2);
             Margin = marginThickness;
 
@@ -41,7 +43,7 @@ namespace TornamentManager.Tornament
             border.Child = textBlock;
             Grid.SetColumn(border, 1);
             Children.Add(border);
-            
+
             border = new Border();
             border.BorderBrush = Brushes.Black;
             border.BorderThickness = new Thickness(1);
@@ -111,6 +113,28 @@ namespace TornamentManager.Tornament
             border.Child = textBlock;
             Grid.SetColumn(border, 8);
             Children.Add(border);
+
+            border = new Border();
+            border.BorderBrush = Brushes.Black;
+            border.BorderThickness = new Thickness(1);
+            Button button = new Button();
+            button.Content = "Remove";
+            button.Margin = new Thickness(2);
+            World world = (World)World.WorldInstance;
+            button.Click += Button_Remove_Click;
+
+            border.Child = button;
+            Grid.SetColumn(border, 9);
+            Children.Add(border);
+        }
+
+        public void Button_Remove_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button)
+            {
+                Button button = (Button)sender;
+                World.WorldInstance.TournamentsList.RemoveTournamentByID(((TournamentBox)(((Border)(button.Parent)).Parent)).ID);
+            }
         }
     }
 }
