@@ -19,6 +19,11 @@ namespace TornamentManager
         public event ITournamentsList.VoidEvent TournamentRemoved;
         public event ITournamentsList.VoidEvent TournamentListChanged;
 
+        public void TriggerListChangedEvent()
+        {
+            TournamentListChanged?.Invoke();
+        }
+
         void ITournamentsList.AddTournament(ITournament tournament)
         {
             if (tournament!=null)
