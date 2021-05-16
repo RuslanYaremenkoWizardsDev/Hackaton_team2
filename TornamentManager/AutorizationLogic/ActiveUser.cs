@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TornamentManager.AutorizationLogic
 {
-   public class ActiveUser: User, IActiveUser
+    public class ActiveUser : User, IActiveUser
     {
         private DateTime _loginTimeDate;
 
@@ -15,10 +15,10 @@ namespace TornamentManager.AutorizationLogic
             get => _loginTimeDate;
         }
         public ActiveUser(IUser user)
-            :base(user.Login, user.Password, user.UserPrivilages)
+            : base(user.Login, user.Password, user.UserPrivilages)
         {
             _loginTimeDate = DateTime.Now;
         }
     }
-    
+
 }

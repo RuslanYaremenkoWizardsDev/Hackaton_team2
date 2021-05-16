@@ -8,6 +8,6 @@ namespace TornamentManager.AutorizationLogic
 {
     public enum EUserPrivileges
     {
-        Admin=1
+        Admin = 1
     }
 }
