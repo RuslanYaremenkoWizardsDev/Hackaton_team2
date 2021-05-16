@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace TornamentManager
         }
 
         public event ITournamentsList.ITournamentEvent TournamentAdded;
+        public event ITournamentsList.VoidEvent TournamentRemoved;
+        public event ITournamentsList.VoidEvent TournamentListChanged;
 
         void ITournamentsList.AddTournament(ITournament tournament)
         {
@@ -23,6 +26,7 @@ namespace TornamentManager
             {
                 _tournaments.Add(tournament);
                 TournamentAdded?.Invoke(tournament);
+                TournamentListChanged?.Invoke();
             }
             
         }
@@ -56,6 +60,9 @@ namespace TornamentManager
                 if (item.ID == ID)
                 {
                     _tournaments.Remove(item);
+                    TournamentRemoved?.Invoke();
+                    TournamentListChanged?.Invoke();
+                    break;
                 }
             }
         }
