@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TornamentManager
+namespace TornamentManager.AutorizationLogic
 {
-    public interface IGameClass
+    public interface IActiveUser : IUser
     {
-
+        public DateTime LoginTimeDate { get; }
     }
 }
