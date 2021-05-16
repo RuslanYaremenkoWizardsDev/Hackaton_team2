@@ -17,6 +17,8 @@ namespace TornamentManager
         }
 
         public event ITournamentsList.ITournamentEvent TournamentAdded;
+        public event ITournamentsList.VoidEvent TournamentRemoved;
+        public event ITournamentsList.VoidEvent TournamentListChanged;
 
         void ITournamentsList.AddTournament(ITournament tournament)
         {
@@ -24,6 +26,7 @@ namespace TornamentManager
             {
                 _tournaments.Add(tournament);
                 TournamentAdded?.Invoke(tournament);
+                TournamentListChanged?.Invoke();
             }
             
         }
@@ -57,6 +60,8 @@ namespace TornamentManager
                 if (item.ID == ID)
                 {
                     _tournaments.Remove(item);
+                    TournamentRemoved?.Invoke();
+                    TournamentListChanged?.Invoke();
                     break;
                 }
             }
