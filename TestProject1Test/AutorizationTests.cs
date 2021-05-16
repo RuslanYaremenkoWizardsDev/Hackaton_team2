@@ -7,12 +7,6 @@ namespace TournamentManager.Tests
 {
     public class AutorizationTests
     {
-        [SetUp]
-        public void Setup()
-        {
-
-        }
-
         [TestCase("Admin")]
         [TestCase("User")]
         [TestCase("sergey")]
@@ -163,7 +157,46 @@ namespace TournamentManager.Tests
             Assert.AreEqual("Admin", ActiveUser.Login);
             Assert.AreEqual("AdminPwd", ActiveUser.Password);
             Assert.AreEqual(EUserPrivileges.Admin, ActiveUser.UserPrivilages);
+        }
 
+        [TestCase("Admin", "AdminPwd","Root")]
+        public void ChangeUserPassword_WhenOldOassword_ShouldNewPassword(string login, string oldPassword, string newPassword)
+        {
+            IAutorization autorization = new Autorization();
+            string examplefile = "1" + "\r\n" + "Admin" + "\r\n" + "AdminPwd" + "\r\n" + "1";
+            StreamWriter sw = new StreamWriter("tempSaveUser.txt");
+
+            sw.WriteLine(examplefile);
+            sw.Close();
+
+            StreamReader sr = new StreamReader("tempSaveUser.txt");
+
+            autorization.LoadUsers(sr);
+            sr.Close();
+            new FileInfo("tempSaveUser.txt").Delete();
+            bool actual = autorization.ChangeUserPassword(login, oldPassword,newPassword);
+            bool expected = true;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCase("Admin", "Admin", "Root")]
+        public void ChangeUserPassword_WhenOldOassword_ShouldFalse(string login, string oldPassword, string newPassword)
+        {
+            IAutorization autorization = new Autorization();
+            string examplefile = "1" + "\r\n" + "Admin" + "\r\n" + "AdminPwd" + "\r\n" + "1";
+            StreamWriter sw = new StreamWriter("tempSaveUser.txt");
+
+            sw.WriteLine(examplefile);
+            sw.Close();
+
+            StreamReader sr = new StreamReader("tempSaveUser.txt");
+
+            autorization.LoadUsers(sr);
+            sr.Close();
+            new FileInfo("tempSaveUser.txt").Delete();
+            bool actual = autorization.ChangeUserPassword(login, oldPassword, newPassword);
+            bool expected = false;
+            Assert.AreEqual(expected, actual);
         }
     }
 }
