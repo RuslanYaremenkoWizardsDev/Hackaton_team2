@@ -43,7 +43,7 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <ComboBox Grid.Column="0" x:Name="TournamentModesComboBox"/>
+                        <ComboBox Grid.Column="0" x:Name="TournamentModesComboBox" SelectionChanged="TornamentModesComboBox_SelectionChanged"/>
                         <ComboBox Grid.Column="1" x:Name="TournamentScenariosComboBox"/>
                     </Grid>
                     <Grid Grid.Column="1" Grid.Row="1">
@@ -58,11 +58,11 @@
                         </Grid.RowDefinitions>
                         <DockPanel Grid.Column="0" Grid.Row="0">
                             <TextBlock Text="StartDate"  DockPanel.Dock="Top" TextAlignment="Center" Height="25"/>
-                            <xctk:DateTimePicker Name="StartDatePicker" Background="#FFE2E2E2" DockPanel.Dock="Top"/>
+                            <xctk:DateTimePicker Name="StartDatePicker" Background="#FFE2E2E2" DockPanel.Dock="Top" ValueChanged="StartDatePicker_ValueChanged"/>
                         </DockPanel>
                         <DockPanel Grid.Column="1" Grid.Row="0">
                             <TextBlock Text="Last Registration Date"  DockPanel.Dock="Top" TextAlignment="Center" Height="25"/>
-                            <xctk:DateTimePicker Name="LastRegistrationDatePicker" Background="#FFE2E2E2" DockPanel.Dock="Top"/>
+                            <xctk:DateTimePicker Name="LastRegistrationDatePicker" Background="#FFE2E2E2" DockPanel.Dock="Top" />
                         </DockPanel>
                         <DockPanel Grid.Column="0" Grid.Row="1">
                             <TextBlock DockPanel.Dock="Top" Text="Tournament level" TextAlignment="Center" Height="25"/>
