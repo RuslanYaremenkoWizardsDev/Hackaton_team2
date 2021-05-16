@@ -24,16 +24,15 @@ namespace TornamentManager
         public MainWindow()
         {
             InitializeComponent();
-            World.WorldInstance.TournamentsList.TournamentAdded += TournamentsList_TournamentAdded;
+            World.WorldInstance.TournamentsList.TournamentListChanged += TournamentsList_TournamentListChanged;
         }
 
-        private void TournamentsList_TournamentAdded(ITournament tournament)
+        private void TournamentsList_TournamentListChanged()
         {
             TornamentsList.Children.Clear();
             foreach (var tourn in World.WorldInstance.TournamentsList)
             {
-                TournamentBox tournamentBox = new TournamentBox(tournament);
-
+                TournamentBox tournamentBox = new TournamentBox(tourn);
                 TornamentsList.Children.Add(tournamentBox);
             }
         }
