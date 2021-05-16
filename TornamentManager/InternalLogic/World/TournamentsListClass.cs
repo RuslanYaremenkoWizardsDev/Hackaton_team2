@@ -10,6 +10,10 @@ namespace TornamentManager
     public class TournamentsListClass : ITournamentsList
     {
         private IList<ITournament> _tournaments;
+        public TournamentsListClass()
+        {
+            _tournaments = new List<ITournament>();
+        }
 
         void ITournamentsList.AddTournament(ITournament tournament)
         {
