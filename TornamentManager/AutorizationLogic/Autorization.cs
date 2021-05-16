@@ -205,9 +205,7 @@ namespace TornamentManager.AutorizationLogic
             else
             {
                 return false;
-            }
-            
-            
+            }  
         }
     }
 }
