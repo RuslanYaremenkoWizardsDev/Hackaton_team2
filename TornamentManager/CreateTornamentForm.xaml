@@ -40,12 +40,12 @@
 
         <DockPanel Grid.Row="4">
             <TextBlock Text="StartDate"  DockPanel.Dock="Top"/>
-            <xctk:DateTimePicker Name="StartDatePicker"/>
+            <xctk:DateTimePicker Name="StartDatePicker" ValueChanged="StartDatePicker_ValueChanged"/>
         </DockPanel>
 
         <DockPanel Grid.Row="5">
             <TextBlock Text="Last Registration Date"  DockPanel.Dock="Top"/>
-            <xctk:DateTimePicker Name="LastRegistrationDate" ValueChanged="LastRegistrationDate_ValueChanged" />
+            <xctk:DateTimePicker Name="LastRegistrationDate" />
         </DockPanel>
     </Grid>
 </Window>

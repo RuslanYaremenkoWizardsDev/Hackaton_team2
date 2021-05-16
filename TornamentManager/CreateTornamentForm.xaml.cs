@@ -30,14 +30,9 @@ namespace TornamentManager
             StartDatePicker.Minimum = DateTime.Now;
         }
 
-        private void LastRegistrationDate_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        private void StartDatePicker_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             LastRegistrationDate.Maximum = StartDatePicker.Value;
         }
-
-        //private void StartDatePicker_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
-        //{
-        //    
-        //}
     }
 }
