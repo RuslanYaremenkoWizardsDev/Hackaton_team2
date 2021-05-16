@@ -6,13 +6,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TornamentManager"
         mc:Ignorable="d"
-        Title="Create Tornament Form" Height="600" Width="968" Background="#FFC7C1C1">
+        Title="Create Tornament Form" Height="626" Width="984" Background="#FFC7C1C1">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25*"/>
-            <RowDefinition Height="150*"/>
+            <RowDefinition Height="140*"/>
             <RowDefinition Height="35*"/>
             <RowDefinition Height="25*"/>
+            <RowDefinition Height="35*"/>
             <RowDefinition Height="35*"/>
             <RowDefinition Height="35*"/>
             <RowDefinition Height="35*"/>
@@ -91,5 +92,6 @@
             </ComboBox>
         </DockPanel>
 
+        <Button Grid.Row ="9" Content="Create Tournament" Margin="5,5,5,5"/>
     </Grid>
 </Window>
