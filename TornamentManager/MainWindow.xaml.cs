@@ -28,7 +28,8 @@ namespace TornamentManager
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            TornamentsList.Children.Add(new TornamentBox());
+            CreateTournamentForm createTornamentForm = new CreateTournamentForm();
+            createTornamentForm.Show();
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
