@@ -79,6 +79,7 @@ namespace TornamentManager
             {
                 case 0:
                     int numb = 4;
+
                     for (int i = 0; i < 6; ++i)
                     {
                         numberOfParticipants.Add(numb);
@@ -89,6 +90,7 @@ namespace TornamentManager
                     NumberOfParticipantsComboBox.SelectedItem = numberOfParticipants[3];
 
                     break;
+
                 case 1:
 
                     for (int i = 1; i <= 10; ++i)
@@ -97,6 +99,7 @@ namespace TornamentManager
                     }
                     NumberOfParticipantsComboBox.ItemsSource = numberOfParticipants;
                     NumberOfParticipantsComboBox.SelectedItem = numberOfParticipants[numberOfParticipants.Count - 1];
+
                     break;
             }
         }
