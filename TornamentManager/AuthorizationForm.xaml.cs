@@ -110,7 +110,7 @@ namespace TornamentManager
 
         private void Cancel_btn_Click(object sender, RoutedEventArgs e)
         {
-            if (_isPassChange)
+            if (!_isPassChange)
             {
                 this.Hide();
                 MainWindow.Show();
@@ -175,10 +175,11 @@ namespace TornamentManager
                (Password_passwordBox.Password == Confirm_passwordBox.Password) &&
                (OldPass_passwordBox.Password == ActiveUser.Password))
             {
-                ActiveUser.Password = Password_passwordBox.Password;
+                autorization.ChangeUserPassword(Login_textBox.Text, OldPass_passwordBox.Password, Password_passwordBox.Password) ;
                 Cancel_btn_Click(sender, e);
                 OldPass_label.Opacity = 0;
                 OldPass_passwordBox.Opacity = 0;
+                Change_btn.Opacity = 0;
             }
         }
 
