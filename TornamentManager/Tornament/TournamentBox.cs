@@ -13,8 +13,10 @@ namespace TornamentManager.Tornament
     {
         public int ID { get; private set; }
         private const int countOfColumn = 10;
+        public ITournament Tournament;
         public TournamentBox(ITournament tournament)
         {
+            Tournament = tournament;
             ID = tournament.ID;
             Thickness marginThickness = new Thickness(2);
             Margin = marginThickness;
@@ -130,6 +132,7 @@ namespace TornamentManager.Tornament
             Button tornamentViewButton = new Button();
             tornamentViewButton.Content = "View";
             tornamentViewButton.Margin = new Thickness(2);
+            tornamentViewButton.Click += Button_tornamentView_Click;
             DockPanel.SetDock(tornamentViewButton, Dock.Top);
             dockPanel.Children.Add(tornamentViewButton);
 
@@ -147,6 +150,12 @@ namespace TornamentManager.Tornament
                 int id = ((TournamentBox)(((Border)(((DockPanel)(button.Parent)).Parent)).Parent)).ID;
                 World.WorldInstance.TournamentsList.RemoveTournamentByID(id);
             }
+        }
+
+        public void Button_tornamentView_Click(object sender, RoutedEventArgs e)
+        {
+            TornamentView tornamentView = new TornamentView(Tournament);
+            tornamentView.Show();
         }
     }
 }

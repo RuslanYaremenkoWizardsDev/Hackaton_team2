@@ -106,19 +106,7 @@ namespace TornamentManager
             }
         }
 
-        private bool CheckIfRequiredFieldsAreNotEmpty()
-        {
-            bool check = false;
 
-            if (TournamentName.Text.Length != 0
-               && StartDatePicker.Value != null
-               && LastRegistrationDatePicker.Value != null)
-            {
-                check = true;
-            }
-
-            return check;
-        }
         private void BtnCreateTournament_Click(object sender, RoutedEventArgs e)
         {
             if (CheckIfRequiredFieldsAreNotEmpty())
@@ -154,6 +142,19 @@ namespace TornamentManager
 
                 this.Close();
             }
+        }
+        private bool CheckIfRequiredFieldsAreNotEmpty()
+        {
+            bool check = false;
+
+            if (TournamentName.Text.Length != 0
+               && StartDatePicker.Value != null
+               && LastRegistrationDatePicker.Value != null)
+            {
+                check = true;
+            }
+
+            return check;
         }
     }
 }
