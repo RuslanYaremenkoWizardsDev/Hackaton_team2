@@ -23,10 +23,14 @@ namespace TornamentManager
     {
         bool _isAutorizationStarted = false;
         AuthorizationForm authorizationForm = new AuthorizationForm();
+        
+
         public MainWindow()
         {
             InitializeComponent();
             World.WorldInstance.TournamentsList.TournamentListChanged += TournamentsList_TournamentListChanged;
+
+            authorizationForm.MainWindow = this;
             if (!_isAutorizationStarted)
             {
                 MainForm.Hide();

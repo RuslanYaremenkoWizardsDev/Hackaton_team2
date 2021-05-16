@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TornamentManager.AutorizationLogic;
+using TornamentManager.Tornament;
 
 
 namespace TornamentManager 
@@ -24,7 +25,8 @@ namespace TornamentManager
     {
         Autorization autorization = new Autorization();
         bool _isBtnSignUpPressed = false;
-        MainWindow mainWindow = new MainWindow();
+        public MainWindow MainWindow;
+        public IActiveUser ActiveUser { get; private set; }
 
         public AuthorizationForm()
         {
@@ -47,6 +49,9 @@ namespace TornamentManager
                 SignIn_btn.Opacity = 0;
                 Cancel_btn.Opacity = 100;
                 Name_label.Content = "Singing Up";
+                Login_textBox.Background = Brushes.White;
+                Password_passwordBox.Background = Brushes.White;
+                Confirm_passwordBox.Background = Brushes.White;
             }
             else
             {
@@ -83,6 +88,7 @@ namespace TornamentManager
                     Password_passwordBox.Background = Brushes.White;
                     Confirm_passwordBox.Background = Brushes.White;
                     OldPass_passwordBox.Background = Brushes.White;
+                    Cancel_btn_Click(sender, e);
                 }   
             }
             _isBtnSignUpPressed = true;
@@ -130,14 +136,26 @@ namespace TornamentManager
             {
                 Password_passwordBox.Background = Brushes.White;
             }
-            if (autorization.validateLogin(Login_textBox.Text) && autorization.validatePassword(Password_passwordBox.Password) && Password_passwordBox.Password == Confirm_passwordBox.Password)
+            if (autorization.validateLogin(Login_textBox.Text) && autorization.validatePassword(Password_passwordBox.Password) )
             {
-                autorization.AutorizeUser(Login_textBox.Text, Password_passwordBox.Password);
-                Login_textBox.Text = null;
-                Password_passwordBox.Password = null;
-                Password_passwordBox.Background = Brushes.White;
-                Confirm_passwordBox.Background = Brushes.White;
-                mainWindow.Show();
+                ActiveUser =  autorization.AutorizeUser(Login_textBox.Text, Password_passwordBox.Password);
+                if (ActiveUser==null)
+                {
+                    Password_passwordBox.Background = Brushes.Red;
+                    Login_textBox.Background = Brushes.Red;
+                }
+                else
+                {
+                    Login_textBox.Text = null;
+                    Password_passwordBox.Password = null;
+                    Password_passwordBox.Background = Brushes.White;
+                    Confirm_passwordBox.Background = Brushes.White;
+                    this.Hide();
+                    MainWindow.Show();
+                }
+
+                
+                
                 
             }
         }
