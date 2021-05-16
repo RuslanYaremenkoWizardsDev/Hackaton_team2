@@ -26,6 +26,7 @@ namespace TornamentManager
         public MainWindow()
         {
             InitializeComponent();
+            World.WorldInstance.TournamentsList.TournamentListChanged += TournamentsList_TournamentListChanged;
             if (!_isAutorizationStarted)
             {
                 MainForm.Hide();
@@ -34,15 +35,20 @@ namespace TornamentManager
             _isAutorizationStarted = true;
         }
 
+        private void TournamentsList_TournamentListChanged()
+        {
+            TornamentsList.Children.Clear();
+            foreach (var tourn in World.WorldInstance.TournamentsList)
+            {
+                TournamentBox tournamentBox = new TournamentBox(tourn);
+                TornamentsList.Children.Add(tournamentBox);
+            }
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             CreateTournamentForm createTornamentForm = new CreateTournamentForm();
             createTornamentForm.Show();
-        }
-
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

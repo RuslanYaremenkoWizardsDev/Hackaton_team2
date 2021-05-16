@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +11,24 @@ namespace TornamentManager
     public class TournamentsListClass : ITournamentsList
     {
         private IList<ITournament> _tournaments;
+        public TournamentsListClass()
+        {
+            _tournaments = new List<ITournament>();
+        }
+
+        public event ITournamentsList.ITournamentEvent TournamentAdded;
+        public event ITournamentsList.VoidEvent TournamentRemoved;
+        public event ITournamentsList.VoidEvent TournamentListChanged;
 
         void ITournamentsList.AddTournament(ITournament tournament)
         {
-            _tournaments.Add(tournament);
+            if (tournament!=null)
+            {
+                _tournaments.Add(tournament);
+                TournamentAdded?.Invoke(tournament);
+                TournamentListChanged?.Invoke();
+            }
+            
         }
 
         IEnumerator<ITournament> IEnumerable<ITournament>.GetEnumerator()
@@ -45,6 +60,9 @@ namespace TornamentManager
                 if (item.ID == ID)
                 {
                     _tournaments.Remove(item);
+                    TournamentRemoved?.Invoke();
+                    TournamentListChanged?.Invoke();
+                    break;
                 }
             }
         }
