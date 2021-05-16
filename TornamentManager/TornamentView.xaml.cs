@@ -178,16 +178,9 @@ namespace TornamentManager
 
         private bool CheckIfRequiredFieldsAreNotEmpty()
         {
-            bool check = false;
-
-            if (TournamentNameTextBox.Text.Length != 0
+            return TournamentNameTextBox.Text.Length != 0
                && StartDatePicker.Value != null
-               && LastRegistrationDatePicker.Value != null)
-            {
-                check = true;
-            }
-
-            return check;
+               && LastRegistrationDatePicker.Value != null;
         }
     }
 }
