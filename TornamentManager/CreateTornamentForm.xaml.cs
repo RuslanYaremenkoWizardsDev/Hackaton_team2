@@ -48,10 +48,10 @@ namespace TornamentManager
 
         private void StartDatePicker_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            LastRegistrationDate.Maximum = StartDatePicker.Value;
-            if(StartDatePicker.Value != null && !LastRegistrationDate.IsEnabled)
+            LastRegistrationDatePicker.Maximum = StartDatePicker.Value;
+            if(StartDatePicker.Value != null && !LastRegistrationDatePicker.IsEnabled)
             {
-                LastRegistrationDate.IsEnabled = true;
+                LastRegistrationDatePicker.IsEnabled = true;
             }
         }
 

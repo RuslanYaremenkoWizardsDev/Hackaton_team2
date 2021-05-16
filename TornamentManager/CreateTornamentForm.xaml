@@ -53,7 +53,7 @@
 
         <DockPanel Grid.Row="5">
             <TextBlock Text="Last Registration Date"  DockPanel.Dock="Top"/>
-            <xctk:DateTimePicker Name="LastRegistrationDate" Background="#FFE2E2E2" IsEnabled="False" />
+            <xctk:DateTimePicker Name="LastRegistrationDatePicker" Background="#FFE2E2E2" IsEnabled="False" />
         </DockPanel>
 
         <DockPanel Grid.Row="6">
