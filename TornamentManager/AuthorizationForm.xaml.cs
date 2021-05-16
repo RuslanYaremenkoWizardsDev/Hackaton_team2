@@ -220,8 +220,6 @@ namespace TornamentManager
                     Password_passwordBox.Password = null;
                     Password_passwordBox.Background = Brushes.White;
                     Confirm_passwordBox.Background = Brushes.White;
-
-                    //MainWindow = new MainWindow();
                     MainWindow.Show();
                     this.Close();
                     MainWindow.UserNameTextBlock.Text = World.WorldInstance.ActiveUser.Login;
