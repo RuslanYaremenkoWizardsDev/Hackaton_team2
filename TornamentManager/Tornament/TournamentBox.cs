@@ -117,13 +117,24 @@ namespace TornamentManager.Tornament
             border = new Border();
             border.BorderBrush = Brushes.Black;
             border.BorderThickness = new Thickness(1);
-            Button button = new Button();
-            button.Content = "Remove";
-            button.Margin = new Thickness(2);
-            World world = (World)World.WorldInstance;
-            button.Click += Button_Remove_Click;
 
-            border.Child = button;
+            DockPanel dockPanel = new DockPanel();
+
+            Button removeButton = new Button();
+            removeButton.Content = "Remove";
+            removeButton.Margin = new Thickness(2);
+            removeButton.Click += Button_Remove_Click;
+            DockPanel.SetDock(removeButton, Dock.Bottom);
+            dockPanel.Children.Add(removeButton);
+
+            Button tornamentViewButton = new Button();
+            tornamentViewButton.Content = "View";
+            tornamentViewButton.Margin = new Thickness(2);
+            DockPanel.SetDock(tornamentViewButton, Dock.Top);
+            dockPanel.Children.Add(tornamentViewButton);
+
+            border.Child = dockPanel;
+
             Grid.SetColumn(border, 9);
             Children.Add(border);
         }
@@ -133,7 +144,8 @@ namespace TornamentManager.Tornament
             if (sender is Button)
             {
                 Button button = (Button)sender;
-                World.WorldInstance.TournamentsList.RemoveTournamentByID(((TournamentBox)(((Border)(button.Parent)).Parent)).ID);
+                int id = ((TournamentBox)(((Border)(((DockPanel)(button.Parent)).Parent)).Parent)).ID;
+                World.WorldInstance.TournamentsList.RemoveTournamentByID(id);
             }
         }
     }
