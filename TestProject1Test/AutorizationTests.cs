@@ -31,6 +31,7 @@ namespace TournamentManager.Tests
         [TestCase("1_g")]
         [TestCase("d d")]
         [TestCase("gfff ")]
+        [TestCase("qazxswedcrfvt")]
         public void ValidateLogin_WhenLogin_ShouldFalse(string login)
         {
             IAutorization autorization = new Autorization();
@@ -58,6 +59,7 @@ namespace TournamentManager.Tests
         [TestCase("1")]
         [TestCase("d d")]
         [TestCase("gfff ")]
+        [TestCase("mnbvcxzaqwsed")]
         public void ValidatePassword_WhenPassword_ShouldInvalid(string password)
         {
             IAutorization autorization = new Autorization();
