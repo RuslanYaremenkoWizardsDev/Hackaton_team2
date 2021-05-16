@@ -12,12 +12,62 @@ namespace TornamentManager.AutorizationLogic
         private List<IUser> usersList = new List<IUser>();
         public IActiveUser AutorizeUser(string login, string password)
         {
-            throw new NotImplementedException();
+            IUser tmpUser = null;
+            foreach (IUser u in usersList)
+            {
+                
+                if (u.Login==login)
+                {
+                    tmpUser = u;
+                    break;
+                }
+                
+            }
+            
+            if (tmpUser == null)
+            {
+                return null;
+            }
+            else
+            {
+                if (tmpUser.Password == password)
+                {
+                    return new ActiveUser(tmpUser);
+                }
+                else
+                {
+                    return null;
+                }
+            }
         }
 
         public bool ChangeUserPassword(string login, string oldPassword, string newPassword)
         {
-            throw new NotImplementedException();
+            IUser tmpUser = null;
+            foreach (IUser u in usersList  )
+            {
+                if (u.Login==login)
+                {
+                    tmpUser = u;
+                    break;
+                }
+            }
+            if (tmpUser==null)
+            {
+                return false;
+            }
+            else
+            {
+                if ( tmpUser.Password==oldPassword)
+                {
+                    tmpUser.Password = newPassword;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
         public IUser CreateUser(string login, string password, EUserPrivileges userPrivilages)
