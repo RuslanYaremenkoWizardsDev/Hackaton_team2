@@ -7,7 +7,7 @@
         xmlns:tornament="clr-namespace:TornamentManager.Tornament"
         xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock" x:Class="TornamentManager.MainWindow"
         mc:Ignorable="d"
-        Title="Tornament Manager" Height="660" Width="1030" Background="#FFC7C1C1">
+        Title="Tornament Manager" Height="783" Width="1442" Background="#FFC7C1C1">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="152*"/>
@@ -42,6 +42,7 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
+                            <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,1,1">
                             <TextBlock  Text="Name"/>
@@ -53,18 +54,22 @@
                             <TextBlock Text="Place"/>
                         </Border>
                         <Border Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,1">
-                            <TextBlock Text="Last Reg. Date"/>
+                            <TextBlock Text="Start Date"/>
                         </Border>
                         <Border Grid.Column="4" BorderBrush="Black" BorderThickness="1,1,1,1">
+                            <TextBlock Text="Last Reg. Date"/>
+                        </Border>
+
+                        <Border Grid.Column="5" BorderBrush="Black" BorderThickness="1,1,1,1">
                             <TextBlock Text="State"/>
                         </Border>
-                        <Border Grid.Column="5" BorderBrush="Black" BorderThickness="1,1,1,1">
+                        <Border Grid.Column="6" BorderBrush="Black" BorderThickness="1,1,1,1">
                             <TextBlock Text="Level"/>
                         </Border>
-                        <Border Grid.Column="6" BorderBrush="Black" BorderThickness="1,1,1,1">
+                        <Border Grid.Column="7" BorderBrush="Black" BorderThickness="1,1,1,1">
                             <TextBlock Text="Participants"/>
                         </Border>
-                        <Border Grid.Column="7" BorderBrush="Black" BorderThickness="1,1,1,1">
+                        <Border Grid.Column="8" BorderBrush="Black" BorderThickness="1,1,1,1">
                             <TextBlock Text="Scenario"/>
                         </Border>
                     </Grid>
