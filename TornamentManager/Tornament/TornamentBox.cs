@@ -11,6 +11,7 @@ namespace TornamentManager.Tornament
 {
     public class TornamentBox : Grid
     {
+
         private const int countOfColumn = 8;
         public TornamentBox(ITournament tournament)
         {
