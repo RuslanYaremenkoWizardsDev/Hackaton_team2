@@ -12,7 +12,7 @@ namespace TornamentManager.AutorizationLogic
         private List<IUser> usersList = new List<IUser>();
         public Autorization()
         {
-            StreamReader sr = new StreamReader("AutorizationData.txt");
+            StreamReader sr = new StreamReader("AutorizationLogic/AutorizationData.txt");
             LoadUsers(sr);
             sr.Close();
         }
