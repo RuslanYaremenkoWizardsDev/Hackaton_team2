@@ -9,7 +9,6 @@ namespace TornamentManager.AutorizationLogic
 {
     class Autorization : IAutorization
     {
-
         private List<IUser> usersList = new List<IUser>();
         public IActiveUser AutorizeUser(string login, string password)
         {
@@ -18,14 +17,12 @@ namespace TornamentManager.AutorizationLogic
                 IUser tmpUser = null;
                 foreach (IUser u in usersList)
                 {
-
                     if (u.Login == login)
                     {
                         tmpUser = u;
                         break;
                     }
                 }
-
                 if (tmpUser == null)
                 {
                     return null;
@@ -46,7 +43,6 @@ namespace TornamentManager.AutorizationLogic
             {
                 return null;
             }
-
         }
 
         public bool ChangeUserPassword(string login, string oldPassword, string newPassword)
@@ -84,13 +80,10 @@ namespace TornamentManager.AutorizationLogic
             {
                 return false;
             }
-
-                
         }
 
         public IUser CreateUser(string login, string password, EUserPrivileges userPrivilages)
         {
-
             if (validateLogin(login) && validatePassword(password))
             {
                 bool uniqueUser = true;
@@ -117,7 +110,6 @@ namespace TornamentManager.AutorizationLogic
             {
                 return null;
             }
-            
         }
 
         public void LoadUsers(StreamReader streamReader)
@@ -162,10 +154,8 @@ namespace TornamentManager.AutorizationLogic
                 "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",
                 "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
 
-
                 "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"
             };
-
             bool allCharsAllowed = true;
             for (int i = 0; i <= str.Length - 1; i++)
             {
@@ -176,7 +166,6 @@ namespace TornamentManager.AutorizationLogic
                     break;
                 }
             }
-
             return allCharsAllowed;
         }
     }

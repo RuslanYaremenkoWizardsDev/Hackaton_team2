@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace TornamentManager
 {
     public class World : IWorld
-
     {
         static World _instance;
         private IList<ITournament> _tournaments;
