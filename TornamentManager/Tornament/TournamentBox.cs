@@ -11,6 +11,7 @@ namespace TornamentManager.Tornament
 {
     public class TournamentBox : Grid
     {
+
         public int ID { get; private set; }
         private const int countOfColumn = 10;
         public TournamentBox(ITournament tournament)
@@ -122,11 +123,20 @@ namespace TornamentManager.Tornament
             button.Content = "Remove";
             button.Margin = new Thickness(2);
             World world = (World)World.WorldInstance;
-            button.Click += world.Button_Remove_Click;
+            button.Click += Button_Remove_Click;
 
             border.Child = button;
             Grid.SetColumn(border, 9);
             Children.Add(border);
+        }
+
+        public void Button_Remove_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button)
+            {
+                Button button = (Button)sender;
+                World.WorldInstance.TournamentsList.RemoveTournamentByID(((TournamentBox)(((Border)(button.Parent)).Parent)).ID);
+            }
         }
     }
 }

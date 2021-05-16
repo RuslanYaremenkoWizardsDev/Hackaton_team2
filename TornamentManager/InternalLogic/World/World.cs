@@ -36,14 +36,5 @@ namespace TornamentManager
             TournamentsList = new TournamentsListClass();
             TeamList = new TeamDictionary();
         }
-
-        public void Button_Remove_Click(object sender, RoutedEventArgs e)
-        {
-            if(sender is Button)
-            {
-                Button button = (Button)sender;
-                TournamentsList.RemoveTournamentByID(((TournamentBox)(((Border)(button.Parent)).Parent)).ID);
-            }    
-        }
     }
 }
