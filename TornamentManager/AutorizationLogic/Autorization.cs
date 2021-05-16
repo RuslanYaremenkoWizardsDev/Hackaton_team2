@@ -96,12 +96,28 @@ namespace TornamentManager.AutorizationLogic
 
         public void LoadUsers(StreamReader streamReader)
         {
-            throw new NotImplementedException();
+            usersList.Clear();
+            int usersNumber;
+            usersNumber = Convert.ToInt32(streamReader.ReadLine());
+            for (int i=1; i<=usersNumber; i++)
+            {
+                string userLogin = streamReader.ReadLine();
+                string userPassword = streamReader.ReadLine();
+                EUserPrivileges userPrivilages = (EUserPrivileges)Convert.ToInt32(streamReader.ReadLine());
+                
+            }
         }
 
         public void SaveUsers(StreamWriter streamWriter)
         {
-            throw new NotImplementedException();
+            streamWriter.WriteLine(usersList.Count.ToString());
+            foreach(IUser u in usersList)
+            {
+                streamWriter.WriteLine(u.Login);
+                streamWriter.WriteLine(u.Password);
+                streamWriter.WriteLine(u.UserPrivilages.ToString());
+            }
+            streamWriter.Close();
         }
     }
 }
