@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using TornamentManager.Tornament;
 
 namespace TornamentManager
 {
@@ -37,7 +39,11 @@ namespace TornamentManager
 
         public void Button_Remove_Click(object sender, RoutedEventArgs e)
         {
-            TournamentsList.RemoveTournamentByID(1);
+            if(sender is Button)
+            {
+                Button button = (Button)sender;
+                TournamentsList.RemoveTournamentByID(((TournamentBox)(((Border)(button.Parent)).Parent)).ID);
+            }    
         }
     }
 }

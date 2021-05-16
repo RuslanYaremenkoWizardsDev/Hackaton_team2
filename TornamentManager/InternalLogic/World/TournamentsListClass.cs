@@ -57,6 +57,7 @@ namespace TornamentManager
                 if (item.ID == ID)
                 {
                     _tournaments.Remove(item);
+                    break;
                 }
             }
         }

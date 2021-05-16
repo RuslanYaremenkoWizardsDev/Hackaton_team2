@@ -11,9 +11,11 @@ namespace TornamentManager.Tornament
 {
     public class TournamentBox : Grid
     {
+        public int ID { get; private set; }
         private const int countOfColumn = 10;
         public TournamentBox(ITournament tournament)
         {
+            ID = tournament.ID;
             Thickness marginThickness = new Thickness(2);
             Margin = marginThickness;
 
@@ -41,7 +43,7 @@ namespace TornamentManager.Tornament
             border.Child = textBlock;
             Grid.SetColumn(border, 1);
             Children.Add(border);
-            
+
             border = new Border();
             border.BorderBrush = Brushes.Black;
             border.BorderThickness = new Thickness(1);
