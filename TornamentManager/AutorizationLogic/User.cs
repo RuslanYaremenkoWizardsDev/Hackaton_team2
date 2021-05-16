@@ -8,8 +8,8 @@ namespace TornamentManager.AutorizationLogic
 {
     public class User : IUser
     {
-        string IUser.Login { get ; set ; }
-        string IUser.Password { get ; set ; }
-        EUserPrivileges IUser.UserPrivilages { get ; set ; }
+        public string Login { get ; set ; }
+        public string Password { get ; set ; }
+        public EUserPrivileges UserPrivilages { get ; set ; }
     }
 }
