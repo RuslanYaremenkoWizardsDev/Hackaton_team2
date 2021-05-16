@@ -131,7 +131,7 @@ namespace TornamentManager.AutorizationLogic
             {
                 streamWriter.WriteLine(u.Login);
                 streamWriter.WriteLine(u.Password);
-                streamWriter.WriteLine(u.UserPrivilages.ToString());
+                streamWriter.WriteLine(((int)(u.UserPrivilages)).ToString());
             }
             streamWriter.Close();
         }
