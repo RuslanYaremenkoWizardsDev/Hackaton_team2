@@ -22,21 +22,20 @@ namespace TornamentManager
     public partial class MainWindow : Window
     {
         bool _isAutorizationStarted = false;
-        //AuthorizationForm authorizationForm = new AuthorizationForm();
-        
+        AuthorizationForm authorizationForm = new AuthorizationForm();
 
         public MainWindow()
         {
             InitializeComponent();
             World.WorldInstance.TournamentsList.TournamentListChanged += TournamentsList_TournamentListChanged;
 
-            //authorizationForm.MainWindow = this;
-            //if (!_isAutorizationStarted)
-            //{
-            //    MainForm.Hide();
-            //    authorizationForm.Show();
-            //}
-            //_isAutorizationStarted = true;
+            authorizationForm.MainWindow = this;
+            if (!_isAutorizationStarted)
+            {
+                MainForm.Hide();
+                authorizationForm.Show();
+            }
+            _isAutorizationStarted = true;
         }
 
         private void TournamentsList_TournamentListChanged()
