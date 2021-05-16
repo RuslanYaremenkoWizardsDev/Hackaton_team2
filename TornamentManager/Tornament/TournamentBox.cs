@@ -11,7 +11,6 @@ namespace TornamentManager.Tornament
 {
     public class TournamentBox : Grid
     {
-
         public int ID { get; private set; }
         private const int countOfColumn = 10;
         public TournamentBox(ITournament tournament)
@@ -118,7 +117,6 @@ namespace TornamentManager.Tornament
             border = new Border();
             border.BorderBrush = Brushes.Black;
             border.BorderThickness = new Thickness(1);
-
             Button button = new Button();
             button.Content = "Remove";
             button.Margin = new Thickness(2);
