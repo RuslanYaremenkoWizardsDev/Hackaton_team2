@@ -21,6 +21,8 @@ namespace TornamentManager
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<ITournament> tournaments;
+
         public MainWindow()
         {
             InitializeComponent();

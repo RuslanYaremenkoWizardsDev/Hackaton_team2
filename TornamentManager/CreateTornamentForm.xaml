@@ -14,19 +14,19 @@
             <RowDefinition Height="40*"/>
             <RowDefinition Height="25*"/>
             <RowDefinition Height="35*"/>
-            <RowDefinition Height="25*"/>
+            <RowDefinition Height="35*"/>
             <RowDefinition Height="25*"/>
             <RowDefinition Height="25*"/>
             <RowDefinition Height="25*"/>
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0">
             <TextBlock Text="Tornament Name:"  DockPanel.Dock="Top"/>
-            <TextBox DockPanel.Dock="Bottom" TextWrapping="Wrap" MaxLength="255"/>
+            <TextBox x:Name="TournamentName" DockPanel.Dock="Bottom" TextWrapping="Wrap" MaxLength="255"/>
         </DockPanel>
         <DockPanel Grid.Row ="1">
             <TextBlock DockPanel.Dock="Top" Text="Tornament Description"/>
             <ScrollViewer DockPanel.Dock="Bottom">
-                <TextBox MaxLength="10000" TextWrapping="Wrap"/>
+                <TextBox x:Name="TournamentDescription" MaxLength="10000" TextWrapping="Wrap"/>
             </ScrollViewer>
         </DockPanel>
         <DockPanel Grid.Row="2" >
@@ -35,7 +35,7 @@
         </DockPanel>
         <DockPanel Grid.Row="3">
             <TextBlock Text="Place"  DockPanel.Dock="Top"/>
-            <TextBox DockPanel.Dock="Bottom" TextWrapping="Wrap"/>
+            <TextBox x:Name="TournamentPlace" DockPanel.Dock="Bottom" TextWrapping="Wrap"/>
         </DockPanel>
 
         <DockPanel Grid.Row="4">
@@ -45,7 +45,8 @@
 
         <DockPanel Grid.Row="5">
             <TextBlock Text="Last Registration Date"  DockPanel.Dock="Top"/>
-            <xctk:DateTimePicker Name="LastRegistrationDate" />
+            <xctk:DateTimePicker x:Name="LastRegistrationDatePicker" />
         </DockPanel>
+        <Button x:Name="BtnCreateTournament" Content="Create Tournament" HorizontalAlignment="Left" Height="21" Margin="778,0,0,0" Grid.Row="8" VerticalAlignment="Top" Width="112" Click="BtnCreateTournament_Click"/>
     </Grid>
 </Window>

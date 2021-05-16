@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TornamentManager.Tornament;
 
 namespace TornamentManager
 {
@@ -21,6 +22,7 @@ namespace TornamentManager
     public partial class CreateTournamentForm : Window
     {
         private ObservableCollection<ETournamentModes> _modes;
+        private ITournament _tournament;
         public CreateTournamentForm()
         {
             _modes = new ObservableCollection<ETournamentModes>((IEnumerable<ETournamentModes>)Enum.GetValues(typeof(ETournamentModes)));
@@ -32,7 +34,24 @@ namespace TornamentManager
 
         private void StartDatePicker_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            LastRegistrationDate.Maximum = StartDatePicker.Value;
+            LastRegistrationDatePicker.Maximum = StartDatePicker.Value;
+        }
+
+        private void BtnCreateTournament_Click(object sender, RoutedEventArgs e)
+        {
+            if (TornamentModesComboBox.Text == "Cup")
+            {
+                _tournament = new TournamentCup(TournamentName.Text, ETournamentModes.Cup, 32);
+            }
+            else if (TornamentModesComboBox.Text == "Championship")
+            {
+                _tournament = new TournamentChampionship(TournamentName.Text, ETournamentModes.Championship, 10);
+            }
+
+            _tournament.Description = TournamentDescription.Text;
+            _tournament.Place = TournamentPlace.Text;
+            _tournament.StartDateTime = (DateTime)StartDatePicker.Value;
+            _tournament.LastRegistrationDateTime = (DateTime)LastRegistrationDatePicker.Value;
         }
     }
 }

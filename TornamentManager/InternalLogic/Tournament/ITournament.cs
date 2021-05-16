@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TornamentManager
 {
-    interface ITournament
+    public interface ITournament
     {
         string Name { get; set; }
         string Description { get; set; }

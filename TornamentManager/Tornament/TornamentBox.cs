@@ -12,7 +12,7 @@ namespace TornamentManager.Tornament
     public class TornamentBox : Grid
     {
         private const int countOfColumn = 8;
-        public TornamentBox()
+        public TornamentBox(ITournament tournament)
         {
             string defaultText = "SomeText";
             Thickness marginThickness = new Thickness(2);

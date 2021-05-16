@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TornamentManager
 {
-    interface IGameClass
+    public interface IGameClass
     {
 
     }

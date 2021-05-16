@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TornamentManager.InternalLogic.Tournament
+namespace TornamentManager
 {
-    class TournamentChampionship : TournamentBase
+    public class TournamentChampionship : TournamentBase
     {
         public TournamentChampionship(string name, ETournamentModes tournamentMode, int numberOfParticipants)
             : base(name, tournamentMode, numberOfParticipants)
