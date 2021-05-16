@@ -62,6 +62,7 @@ namespace TornamentManager
                     _tournaments.Remove(item);
                     TournamentRemoved?.Invoke();
                     TournamentListChanged?.Invoke();
+                    break;
                 }
             }
         }
