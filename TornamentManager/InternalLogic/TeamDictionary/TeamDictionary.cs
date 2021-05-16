@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TornamentManager
 {
-    class TeamDictionary : ITeamDictionary
+   public class TeamDictionary : ITeamDictionary
     {
         private IList<ITeamClass> _teamList;
         IList<ITeamClass> ITeamDictionary.TeamList => _teamList;

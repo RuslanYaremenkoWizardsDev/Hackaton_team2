@@ -12,6 +12,8 @@ namespace TornamentManager
         private string _description;
         private int _numberOfParticipants;
         private ETournamentModes _tournamentMode;
+        private static int lastID=0;
+        public int ID {get; private set;}
 
         string ITournament.Name
         {
@@ -68,9 +70,12 @@ namespace TornamentManager
         {
             get;
         }
+        bool ITournament.Canceled { get ; set ; }
 
         public TournamentBase(string name, ETournamentModes tournamentMode, int numberOfParticipants)
         {
+            lastID++;
+            ID = lastID;
             _name = name;
             _tournamentMode = tournamentMode;
 
