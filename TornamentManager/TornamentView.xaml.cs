@@ -137,7 +137,7 @@ namespace TornamentManager
 
         private void SaveChangesButton_Click(object sender, RoutedEventArgs e)
         {
-            if (true)
+            if (CheckIfRequiredFieldsAreNotEmpty())
             {
                 World world = (World)World.WorldInstance;
 
@@ -174,6 +174,13 @@ namespace TornamentManager
 
                 world.TournamentsList.TriggerListChangedEvent();
             }
+        }
+
+        private bool CheckIfRequiredFieldsAreNotEmpty()
+        {
+            return TournamentNameTextBox.Text.Length != 0
+               && StartDatePicker.Value != null
+               && LastRegistrationDatePicker.Value != null;
         }
     }
 }
