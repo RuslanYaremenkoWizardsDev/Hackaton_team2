@@ -11,7 +11,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="152*"/>
         </Grid.RowDefinitions>
-
         <TabControl Grid.Row="1" Margin="0,3,0,0" Background="#FFC7C1C1" SelectionChanged="TabControl_SelectionChanged">
             <TabItem Header="Tournaments">
                 <TabItem.Background>
@@ -42,7 +41,6 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-
                         <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,1,1">
                             <TextBlock  Text="Name"/>
                         </Border>
@@ -71,11 +69,7 @@
                     <ScrollViewer  Grid.Row="2">
                         <StackPanel x:Name="TornamentsList" Background="#FFE2E2E2" Margin="2,2,2,2"/>
                     </ScrollViewer>
-
-
-
                 </Grid>
-
             </TabItem>
             <TabItem Header="Tournaments statistic">
                 <TabItem.Background>
@@ -84,7 +78,6 @@
                         <GradientStop Color="#FFC7C1C1" Offset="1"/>
                     </LinearGradientBrush>
                 </TabItem.Background>
-
                 <Grid Margin="5,5,5,5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="46*"/>
@@ -100,7 +93,6 @@
                                 <RowDefinition Height="100*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-
                                 <ColumnDefinition Width="28*"/>
                                 <ColumnDefinition Width="28*"/>
                                 <ColumnDefinition Width="28*"/>
@@ -208,19 +200,14 @@
 
                                 </TextBlock>
                             </Border>
-
-
                         </Grid>
-
                     </Grid>
                     <DockPanel Grid.Row="0" HorizontalAlignment="Center" Width="0">
                     </DockPanel>
                     <TextBlock Text="Tournaments" TextWrapping="Wrap" VerticalAlignment="Center" Height="43" FontSize="20" FontWeight="Bold" TextAlignment="Center" Margin="442,0,419,0"/>
-
                 </Grid>
             </TabItem>
-            <TabItem Margin="-2,-2,-33,0" Header="Players statistics">
-
+            <TabItem Header="Players statistics" Margin="-2,0,-2,0">
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#FFF0F0F0"/>
@@ -235,10 +222,7 @@
                     <Grid Grid.Row="1" Margin="0,34,0,0">
                     </Grid>
                 </Grid>
-
             </TabItem>
-
-
         </TabControl>
         <Label x:Name="LogOutLabel" Content="Log out" HorizontalAlignment="Right" Margin="956,3,0,0" VerticalAlignment="Top" Height="23" Width="64" FontSize="10" BorderBrush="#FF8A0202" Foreground="Black" FontWeight="Bold"/>
     </Grid>
