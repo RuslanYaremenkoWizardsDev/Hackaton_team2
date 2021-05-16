@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TornamentManager.Tornament;
 
 namespace TornamentManager
 {
@@ -46,10 +47,10 @@ namespace TornamentManager
 
         private void StartDatePicker_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            LastRegistrationDate.Maximum = StartDatePicker.Value;
-            if(StartDatePicker.Value != null && !LastRegistrationDate.IsEnabled)
+            LastRegistrationDatePicker.Maximum = StartDatePicker.Value;
+            if (StartDatePicker.Value != null && !LastRegistrationDatePicker.IsEnabled)
             {
-                LastRegistrationDate.IsEnabled = true;
+                LastRegistrationDatePicker.IsEnabled = true;
             }
         }
 
@@ -102,6 +103,56 @@ namespace TornamentManager
                     NumberOfParticipantsComboBox.SelectedItem = numberOfParticipants[numberOfParticipants.Count - 1];
 
                     break;
+            }
+        }
+
+        private bool CheckIfRequiredFieldsAreNotEmpty()
+        {
+            bool check = false;
+
+            if (TournamentName.Text.Length != 0
+               && StartDatePicker.Value != null
+               && LastRegistrationDatePicker.Value != null)
+            {
+                check = true;
+            }
+
+            return check;
+        }
+        private void BtnCreateTournament_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckIfRequiredFieldsAreNotEmpty())
+            {
+                ITournament tournament;
+
+                switch ((ETournamentModes)TornamentModesComboBox.SelectedItem)
+                {
+                    case ETournamentModes.Cup:
+                        tournament = new TournamentCup(TournamentName.Text, ETournamentModes.Cup, Convert.ToInt32(NumberOfParticipantsComboBox.Text));
+                        break;
+
+                    case ETournamentModes.Championship:
+                        tournament = new TournamentChampionship(TournamentName.Text, ETournamentModes.Championship, Convert.ToInt32(NumberOfParticipantsComboBox.Text));
+                        break;
+
+                    default:
+                        tournament = new TournamentCup(TournamentName.Text, ETournamentModes.Cup, Convert.ToInt32(NumberOfParticipantsComboBox.Text));
+                        break;
+                }
+
+                tournament.Description = TournamentDescription.Text;
+                tournament.Place = TournamentPlace.Text;
+                tournament.StartDateTime = (DateTime)StartDatePicker.Value;
+                tournament.LastRegistrationDateTime = (DateTime)LastRegistrationDatePicker.Value;
+
+                tournament.TournamentLevel = (ETournamentLevel)TournamentLevelsComboBox.SelectedItem;
+                tournament.Scenario = (ETournamentScenarios)TournamentScenariosComboBox.SelectedItem;
+
+                World world = (World)World.WorldInstance;
+
+                world.TournamentsList.AddTournament(tournament);
+
+                this.Close();
             }
         }
     }

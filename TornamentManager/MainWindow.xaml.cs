@@ -32,9 +32,14 @@ namespace TornamentManager
             createTornamentForm.Show();
         }
 
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            TornamentsList.Children.Clear();
+           foreach (var tournament in World.WorldInstance.TournamentsList)
+            {
+                TournamentBox tournamentBox = new TournamentBox(tournament);
+                TornamentsList.Children.Add(tournamentBox);
+            }
         }
     }
 }
