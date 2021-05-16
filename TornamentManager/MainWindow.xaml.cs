@@ -23,7 +23,6 @@ namespace TornamentManager
     {
         bool _isAutorizationStarted = false;
         AuthorizationForm authorizationForm = new AuthorizationForm();
-        
 
         public MainWindow()
         {
