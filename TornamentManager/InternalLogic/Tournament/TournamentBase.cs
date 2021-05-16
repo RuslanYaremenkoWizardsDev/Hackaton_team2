@@ -68,6 +68,7 @@ namespace TornamentManager
         {
             get;
         }
+        bool ITournament.Canceled { get ; set ; }
 
         public TournamentBase(string name, ETournamentModes tournamentMode, int numberOfParticipants)
         {
