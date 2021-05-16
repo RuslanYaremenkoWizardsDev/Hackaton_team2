@@ -42,5 +42,14 @@ namespace TornamentManager
             CreateTournamentForm createTornamentForm = new CreateTournamentForm();
             createTornamentForm.Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ITeamClass participant = new TeamClass(ParticipantNameTextBox.Text);
+            ITeamDictionary teamDictionary = new TeamDictionary();
+            teamDictionary.TeamList.Add(participant);
+            
+
+        }
     }
 }

@@ -201,12 +201,20 @@
                 </TabItem.Background>
                 <Grid Margin="5,5,5,5">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="44*"/>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="30*"/>
+                        <RowDefinition Height="35*"/>
                         <RowDefinition Height="44*"/>
                         <RowDefinition Height="523*"/>
                     </Grid.RowDefinitions>
-                        <Button Grid.Row="0" Content="Add Participant" BorderBrush="Black" Background="#FFB7AEAE"  Margin="5,5,5,5" Click="Button_Click"/>
-                    <Grid Grid.Row="1" Height="20" Margin="2,2,20,2">
+                    <TextBlock Grid.Row="0" Text="Enter participant name:" FontSize="15" FontWeight="Bold">
+                        
+                    </TextBlock>
+                    <TextBox x:Name="ParticipantNameTextBox" Grid.Row="1">
+                        
+                    </TextBox>
+                        <Button Grid.Row="2" Content="Add Participant" BorderBrush="Black" Background="#FFB7AEAE"  Margin="5,5,5,5" Click="Button_Click_1"/>
+                    <Grid Grid.Row="3" Height="20" Margin="2,2,20,2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -218,7 +226,7 @@
                             <TextBlock Text="Actions"/>
                         </Border>
                     </Grid>
-                    <ScrollViewer  Grid.Row="2">
+                    <ScrollViewer  Grid.Row="4">
                         <StackPanel x:Name="ParticipantsList" Background="#FFE2E2E2" Margin="2,2,2,2"/>
                     </ScrollViewer>
                 </Grid>
