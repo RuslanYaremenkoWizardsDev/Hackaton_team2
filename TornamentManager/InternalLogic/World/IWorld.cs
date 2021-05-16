@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TornamentManager.AutorizationLogic;
 
 namespace TornamentManager
 {
@@ -13,5 +14,7 @@ namespace TornamentManager
         
 
         public TeamDictionary TeamDictionary { get; }
+
+        public IActiveUser ActiveUser { get; set; }
     }
 }
