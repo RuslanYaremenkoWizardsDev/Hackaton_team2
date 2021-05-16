@@ -64,20 +64,24 @@ namespace TornamentManager
         public ETournamentLevel TournamentLevel { get; set; }
         public int NumberOfParticipants { get; set; }
         public ETournamentScenarios Scenario { get; set; }
-        IList<ITeamClass> ITournament.Players { get; }
+        public IList<ITeamClass> Players { get; private set; }
 
-        IList<IGameClass> ITournament.Games
-        {
-            get;
-        }
+        public IList<IGameClass> Games { get; private set; }
+        
         bool ITournament.Canceled { get ; set ; }
 
         public TournamentBase(string name, ETournamentModes tournamentMode, int numberOfParticipants)
         {
+
             lastID++;
             ID = lastID;
             _name = name;
             _tournamentMode = tournamentMode;
+
+            Players = new List<ITeamClass>();
+
+            Games = new List<IGameClass>();
+            
 
             if (tournamentMode == ETournamentModes.Championship)
             {
