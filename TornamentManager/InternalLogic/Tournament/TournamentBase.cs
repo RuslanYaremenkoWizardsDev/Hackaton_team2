@@ -10,7 +10,7 @@ namespace TornamentManager
     {
         private string _name;
         private string _description;
-        private int _numberOfParticipants;
+        //private int _numberOfParticipants;
         private ETournamentModes _tournamentMode;
         private static int lastID=0;
         public int ID {get; private set;}
@@ -58,26 +58,30 @@ namespace TornamentManager
             }
         }
 
-        string ITournament.Place { get; set; }
-        DateTime ITournament.StartDateTime { get; set; }
-        DateTime ITournament.LastRegistrationDateTime { get; set; }
-        ETournamentLevel ITournament.TournamentLevel { get; set; }
-        int ITournament.NumberOfParticipants { get; set; }
-        ETournamentScenarios ITournament.Scenario { get; set; }
-        IList<ITeamClass> ITournament.Players { get; }
+        public string Place { get; set; }
+        public DateTime StartDateTime { get; set; }
+        public DateTime LastRegistrationDateTime { get; set; }
+        public ETournamentLevel TournamentLevel { get; set; }
+        public int NumberOfParticipants { get; set; }
+        public ETournamentScenarios Scenario { get; set; }
+        public IList<ITeamClass> Players { get; private set; }
 
-        IList<IGameClass> ITournament.Games
-        {
-            get;
-        }
+        public IList<IGameClass> Games { get; private set; }
+        
         bool ITournament.Canceled { get ; set ; }
 
         public TournamentBase(string name, ETournamentModes tournamentMode, int numberOfParticipants)
         {
+
             lastID++;
             ID = lastID;
             _name = name;
             _tournamentMode = tournamentMode;
+
+            Players = new List<ITeamClass>();
+
+            Games = new List<IGameClass>();
+            
 
             if (tournamentMode == ETournamentModes.Championship)
             {
@@ -87,7 +91,7 @@ namespace TornamentManager
                 }
                 else
                 {
-                    _numberOfParticipants = numberOfParticipants;
+                    NumberOfParticipants = numberOfParticipants;
                 }
             }
 
@@ -96,7 +100,7 @@ namespace TornamentManager
                 if (numberOfParticipants == 4 || numberOfParticipants == 8 || numberOfParticipants == 16 ||
                     numberOfParticipants == 32 || numberOfParticipants == 64 || numberOfParticipants == 128)
                 {
-                    _numberOfParticipants = numberOfParticipants;
+                    NumberOfParticipants = numberOfParticipants;
                 }
                 else
                 {

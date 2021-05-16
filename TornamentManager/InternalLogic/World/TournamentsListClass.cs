@@ -10,11 +10,22 @@ namespace TornamentManager
 {
     public class TournamentsListClass : ITournamentsList
     {
-        private IList<ITournament> _tournaments = new List<ITournament>();
+        private IList<ITournament> _tournaments;
+        public TournamentsListClass()
+        {
+            _tournaments = new List<ITournament>();
+        }
+
+        public event ITournamentsList.ITournamentEvent TournamentAdded;
 
         void ITournamentsList.AddTournament(ITournament tournament)
         {
-            _tournaments.Add(tournament);
+            if (tournament!=null)
+            {
+                _tournaments.Add(tournament);
+                TournamentAdded?.Invoke(tournament);
+            }
+            
         }
 
         IEnumerator<ITournament> IEnumerable<ITournament>.GetEnumerator()
