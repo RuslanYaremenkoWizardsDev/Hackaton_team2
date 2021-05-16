@@ -21,6 +21,7 @@ namespace TornamentManager
     /// </summary>
     public partial class CreateTournamentForm : Window
     {
+        ITournament _tournament;
         public CreateTournamentForm()
         {
             InitializeComponent();
@@ -102,17 +103,45 @@ namespace TornamentManager
         {
             if (TornamentModesComboBox.Text == "Cup")
             {
-                _tournament = new TournamentCup(TournamentName.Text, ETournamentModes.Cup, 32);
+                _tournament = new TournamentCup(TournamentName.Text, ETournamentModes.Cup, Convert.ToInt32(NumberOfParticipantsComboBox.Text));
             }
             else if (TornamentModesComboBox.Text == "Championship")
             {
-                _tournament = new TournamentChampionship(TournamentName.Text, ETournamentModes.Championship, 10);
+                _tournament = new TournamentChampionship(TournamentName.Text, ETournamentModes.Championship, Convert.ToInt32(NumberOfParticipantsComboBox.Text));
             }
 
             _tournament.Description = TournamentDescription.Text;
             _tournament.Place = TournamentPlace.Text;
             _tournament.StartDateTime = (DateTime)StartDatePicker.Value;
             _tournament.LastRegistrationDateTime = (DateTime)LastRegistrationDatePicker.Value;
+
+            switch (TournamentLevelsComboBox.Text)
+            {
+                case "Advanced":
+                    _tournament.TournamentLevel = ETournamentLevel.Advanced;
+                    break;
+                case "Middle":
+                    _tournament.TournamentLevel = ETournamentLevel.Middle;
+                    break;
+                case "Beginner":
+                    _tournament.TournamentLevel = ETournamentLevel.Beginner;
+                    break;
+            }
+
+            switch (TournamentScenariosComboBox.Text)
+            {
+                case "OneMatchConfrontation":
+                    _tournament.Scenario = ETournamentScenarios.OneMatchConfrontation;
+                    break;
+                case "TwoMatchConfronataion":
+                    _tournament.Scenario = ETournamentScenarios.TwoMatchConfronataion;
+                    break;
+                case "ToThreeWins":
+                    _tournament.Scenario = ETournamentScenarios.ToThreeWins;
+                    break;
+            }
+
+            this.Close();
         }
     }
 }
