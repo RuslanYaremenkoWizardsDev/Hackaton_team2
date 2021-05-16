@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System.IO;
 using TornamentManager.AutorizationLogic;
 
 
@@ -64,6 +65,7 @@ namespace TournamentManager.Tests
             bool expected = false;
 
             Assert.AreEqual(actual, expected);
+
         }
         [TestCase("Admin", "Admin", EUserPrivileges.Admin)]
         [TestCase("Root", "Admin", EUserPrivileges.Admin)]
@@ -79,6 +81,17 @@ namespace TournamentManager.Tests
             Assert.AreEqual(actual.UserPrivilages, userPrivilages);
         }
 
+        [TestCase("mi", "", EUserPrivileges.Admin)]
+        [TestCase("1", "11", EUserPrivileges.Admin)]
+        [TestCase("@@", "11", EUserPrivileges.Admin)]
+        public void CreateUser_WhenLoginPasswordInvalid_ShouldFalse(string login, string password, EUserPrivileges userPrivilages)
+        {
+            IAutorization autorization = new Autorization();
+            IUser actual = autorization.CreateUser(login, password, userPrivilages);
+
+            Assert.IsNull(actual);
+        }
+
         [TestCase("Admin", "Admin", EUserPrivileges.Admin)]
         public void CreateUser_WhenDuplicateLogin_ShouldFalse(string login, string password, EUserPrivileges userPrivilages)
         {
@@ -88,17 +101,6 @@ namespace TournamentManager.Tests
             Assert.IsNotNull(actual);
             actual = autorization.CreateUser(login, password, userPrivilages);
             Assert.Null(actual);
-        }
-
-        [TestCase("mi", "", EUserPrivileges.Admin)]
-        [TestCase("1", "11", EUserPrivileges.Admin)]
-        [TestCase("@@", "11", EUserPrivileges.Admin)]
-        public void CreateUser_WhenLoginPasswordUserPrivilages_ShouldFalse(string login, string password, EUserPrivileges userPrivilages)
-        {
-            IAutorization autorization = new Autorization();
-            IUser actual = autorization.CreateUser(login, password, userPrivilages);
-
-            Assert.IsNull(actual);
         }
     }
 }
