@@ -24,22 +24,23 @@ namespace TornamentManager
         public MainWindow()
         {
             InitializeComponent();
+            World.WorldInstance.TournamentsList.TournamentListChanged += TournamentsList_TournamentListChanged;
+        }
+
+        private void TournamentsList_TournamentListChanged()
+        {
+            TornamentsList.Children.Clear();
+            foreach (var tourn in World.WorldInstance.TournamentsList)
+            {
+                TournamentBox tournamentBox = new TournamentBox(tourn);
+                TornamentsList.Children.Add(tournamentBox);
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             CreateTournamentForm createTornamentForm = new CreateTournamentForm();
             createTornamentForm.Show();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            TornamentsList.Children.Clear();
-           foreach (var tournament in World.WorldInstance.TournamentsList)
-            {
-                TournamentBox tournamentBox = new TournamentBox(tournament);
-                TornamentsList.Children.Add(tournamentBox);
-            }
         }
     }
 }
