@@ -37,21 +37,25 @@ namespace TornamentManager
             TournamentLevelsComboBox.SelectedItem = _levels[1];
             StartDatePicker.Minimum = DateTime.Now;
 
-            SetNumberOfParticipantsList();
-            SetTournamentScenariosComboBoxItems();
+            PrepareNumberOfParticipantsComboBox();
+            PrepareTournamentScenariosComboBoxItems();
         }
         private void TornamentModesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SetNumberOfParticipantsList();
-            SetTournamentScenariosComboBoxItems();
+            PrepareNumberOfParticipantsComboBox();
+            PrepareTournamentScenariosComboBoxItems();
         }
 
         private void StartDatePicker_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            LastRegistrationDatePicker.Maximum = StartDatePicker.Value;
+            LastRegistrationDate.Maximum = StartDatePicker.Value;
+            if(StartDatePicker.Value != null && !LastRegistrationDate.IsEnabled)
+            {
+                LastRegistrationDate.IsEnabled = true;
+            }
         }
 
-        private void SetTournamentScenariosComboBoxItems()
+        private void PrepareTournamentScenariosComboBoxItems()
         {
             ObservableCollection<ETournamentScenarios> scenarios = new ObservableCollection<ETournamentScenarios>(
                 (IEnumerable<ETournamentScenarios>)Enum.GetValues(typeof(ETournamentScenarios)));
@@ -70,13 +74,14 @@ namespace TornamentManager
             TournamentScenariosComboBox.SelectedItem = scenarios[0];
         }
 
-        private void SetNumberOfParticipantsList()
+        private void PrepareNumberOfParticipantsComboBox()
         {
             ObservableCollection<int> numberOfParticipants = new ObservableCollection<int>();
             switch (TornamentModesComboBox.SelectedIndex)
             {
                 case 0:
                     int numb = 4;
+
                     for (int i = 0; i < 6; ++i)
                     {
                         numberOfParticipants.Add(numb);
@@ -87,14 +92,17 @@ namespace TornamentManager
                     NumberOfParticipantsComboBox.SelectedItem = numberOfParticipants[3];
 
                     break;
+
                 case 1:
 
                     for (int i = 1; i <= 10; ++i)
                     {
                         numberOfParticipants.Add(i);
                     }
+
                     NumberOfParticipantsComboBox.ItemsSource = numberOfParticipants;
                     NumberOfParticipantsComboBox.SelectedItem = numberOfParticipants[numberOfParticipants.Count - 1];
+
                     break;
             }
         }
