@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace TornamentManager.Stats
 {
-    
     class TournamentStatistics
     {
         public TournamentStatsInfo CupStats { get; }
