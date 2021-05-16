@@ -189,7 +189,7 @@ namespace TornamentManager.AutorizationLogic
             };
             bool allCharsAllowed = true;
             
-            if (str!=null)
+            if (str!=null && str.Length<=12)
             {
                 for (int i = 0; i <= str.Length - 1; i++)
                 {
