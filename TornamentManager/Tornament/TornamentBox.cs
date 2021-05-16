@@ -15,7 +15,6 @@ namespace TornamentManager.Tornament
         private const int countOfColumn = 8;
         public TornamentBox(ITournament tournament)
         {
-            string defaultText = "SomeText";
             Thickness marginThickness = new Thickness(2);
             Margin = marginThickness;
 
@@ -50,6 +49,56 @@ namespace TornamentManager.Tornament
             textBlock = new TextBlock();
             textBlock.Name = "Place";
             textBlock.Text = tournament.Place;
+            border.Child = textBlock;
+            Grid.SetColumn(border, 1);
+            Children.Add(border);
+
+            border = new Border();
+            border.BorderBrush = Brushes.Black;
+            border.BorderThickness = new Thickness(1);
+            textBlock = new TextBlock();
+            textBlock.Name = "Last Registration Date";
+            textBlock.Text = tournament.LastRegistrationDateTime.ToString();
+            border.Child = textBlock;
+            Grid.SetColumn(border, 1);
+            Children.Add(border);
+
+            border = new Border();
+            border.BorderBrush = Brushes.Black;
+            border.BorderThickness = new Thickness(1);
+            textBlock = new TextBlock();
+            textBlock.Name = "State";
+            textBlock.Text = "Active";
+            border.Child = textBlock;
+            Grid.SetColumn(border, 1);
+            Children.Add(border);
+
+            border = new Border();
+            border.BorderBrush = Brushes.Black;
+            border.BorderThickness = new Thickness(1);
+            textBlock = new TextBlock();
+            textBlock.Name = "Level";
+            textBlock.Text = tournament.TournamentLevel.ToString();
+            border.Child = textBlock;
+            Grid.SetColumn(border, 1);
+            Children.Add(border);
+
+            border = new Border();
+            border.BorderBrush = Brushes.Black;
+            border.BorderThickness = new Thickness(1);
+            textBlock = new TextBlock();
+            textBlock.Name = "Participants";
+            textBlock.Text = tournament.NumberOfParticipants.ToString();
+            border.Child = textBlock;
+            Grid.SetColumn(border, 1);
+            Children.Add(border);
+
+            border = new Border();
+            border.BorderBrush = Brushes.Black;
+            border.BorderThickness = new Thickness(1);
+            textBlock = new TextBlock();
+            textBlock.Name = "Scenario";
+            textBlock.Text = tournament.Scenario.ToString();
             border.Child = textBlock;
             Grid.SetColumn(border, 1);
             Children.Add(border);
