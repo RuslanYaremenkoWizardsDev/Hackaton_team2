@@ -107,13 +107,55 @@ namespace TournamentManager.Tests
         {
             IAutorization autorization = new Autorization();
             IUser actual = autorization.CreateUser("Admin", "AdminPwd", EUserPrivileges.Admin);
-            autorization.SaveUsers(new StreamWriter("C:/temp.txt"));
+            autorization.SaveUsers(new StreamWriter("tempSaveUser.txt"));
 
-            string tmpString = new StreamReader("C:/temp.txt").ReadToEnd().Trim();
+            var sr = new StreamReader("tempSaveUser.txt");
+            string tmpString = sr.ReadToEnd().Trim();
+            sr.Close();
+
             string expected = "1" + "\r\n"+"Admin"+"\r\n"+"AdminPwd"+"\r\n"+"1";
             expected = expected.Trim();
             Assert.AreEqual(expected, tmpString);
-            new FileInfo("C:/temp.txt").Delete();
+            new FileInfo("tempSaveUser.txt").Delete();
+        }
+        [Test]
+        public void SaveUsers_MultyUser()
+        {
+            IAutorization autorization = new Autorization();
+            IUser actual = autorization.CreateUser("Admin", "AdminPwd", EUserPrivileges.Admin);
+            autorization.SaveUsers(new StreamWriter("tempSaveUser.txt"));
+
+            actual = autorization.CreateUser("SuperAdmin", "SuperAdminPwd", EUserPrivileges.Admin);
+            autorization.SaveUsers(new StreamWriter("tempSaveUser.txt"));
+
+            var sr = new StreamReader("tempSaveUser.txt");
+            string tmpString = sr.ReadToEnd().Trim();
+            sr.Close();
+
+            string expected = "2" + "\r\n" + "Admin" + "\r\n" + "AdminPwd" + "\r\n" + "1" +"\r\n";
+            expected +=  "SuperAdmin" + "\r\n" + "SuperAdminPwd" + "\r\n" + "1";
+
+            expected = expected.Trim();
+            Assert.AreEqual(expected, tmpString);
+            new FileInfo("tempSaveUser.txt").Delete();
+        }
+
+        [Test]
+        public void LoadUsers_OneUser()
+        {
+            IAutorization autorization = new Autorization();
+
+
+            IUser actual = autorization.LoadUsers(new StreamReader("tempUser.txt"));
+            
+            var sr = new StreamReader("tempUser.txt");
+            string tmpString = sr.ReadToEnd().Trim();
+            sr.Close();
+
+            string expected = "1" + "\r\n" + "Admin" + "\r\n" + "AdminPwd" + "\r\n" + "1";
+            expected = expected.Trim();
+            Assert.AreEqual(expected, tmpString);
+            new FileInfo("tempSaveUser.txt").Delete();
         }
     }
 }
