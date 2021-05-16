@@ -38,6 +38,7 @@ namespace TornamentManager
            foreach (var tournament in World.WorldInstance.TournamentsList)
             {
                 TournamentBox tournamentBox = new TournamentBox(tournament);
+                
                 TornamentsList.Children.Add(tournamentBox);
             }
         }

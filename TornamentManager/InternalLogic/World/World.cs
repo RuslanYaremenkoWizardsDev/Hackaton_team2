@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace TornamentManager
 {
@@ -32,6 +33,11 @@ namespace TornamentManager
         {
             TournamentsList = new TournamentsListClass();
             TeamList = new TeamDictionary();
+        }
+
+        public void Button_Remove_Click(object sender, RoutedEventArgs e)
+        {
+            TournamentsList.RemoveTournamentByID(1);
         }
     }
 }

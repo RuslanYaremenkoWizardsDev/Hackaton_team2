@@ -43,6 +43,7 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
+                            <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,1,1">
                             <TextBlock  Text="Name"/>
@@ -71,6 +72,10 @@
                         </Border>
                         <Border Grid.Column="8" BorderBrush="Black" BorderThickness="1,1,1,1">
                             <TextBlock Text="Scenario"/>
+                        </Border>
+
+                        <Border Grid.Column="9" BorderBrush="Black" BorderThickness="1,1,1,1">
+                            <TextBlock Text="Actions"/>
                         </Border>
                     </Grid>
 
