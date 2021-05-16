@@ -15,10 +15,8 @@ namespace TornamentManager.AutorizationLogic
             get => _loginTimeDate;
         }
         public ActiveUser(IUser user)
+            :base(user.Login, user.Password, user.UserPrivilages)
         {
-            base.Login = user.Login;
-            base.Password = user.Password;
-            base.UserPrivilages = user.UserPrivilages;
             _loginTimeDate = DateTime.Now;
         }
     }
