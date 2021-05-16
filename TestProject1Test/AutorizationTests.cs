@@ -23,7 +23,7 @@ namespace TournamentManager.Tests
             bool actual = autorization.validateLogin(login);
             bool expected = true;
 
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected,actual);
         }
 
         [TestCase("")]
@@ -37,7 +37,7 @@ namespace TournamentManager.Tests
             bool actual = autorization.validateLogin(login);
             bool expected = false;
 
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestCase("Admin")]
@@ -50,7 +50,7 @@ namespace TournamentManager.Tests
             bool actual = autorization.validatePassword(password);
             bool expected = true;
 
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestCase("")]
@@ -64,7 +64,7 @@ namespace TournamentManager.Tests
             bool actual = autorization.validatePassword(password);
             bool expected = false;
 
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
 
         }
         [TestCase("Admin", "Admin", EUserPrivileges.Admin)]
