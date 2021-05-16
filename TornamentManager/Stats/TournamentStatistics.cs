@@ -9,5 +9,8 @@ namespace TornamentManager.Stats
     
     class TournamentStatistics
     {
+        public TournamentStatsInfo CupStats { get; }
+        public TournamentStatsInfo ChampionshipStats { get; }
+        public TournamentStatsInfo TotalStats { get; }
     }
 }
