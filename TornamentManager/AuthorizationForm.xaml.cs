@@ -167,18 +167,18 @@ namespace TornamentManager
             {
                 Confirm_passwordBox.Background = Brushes.White;
             }
-            if(OldPass_passwordBox.Password != ActiveUser.Password)
+            if(OldPass_passwordBox.Password != World.WorldInstance.ActiveUser.Password)
             {
                 OldPass_passwordBox.Background = Brushes.Red;
             }
-            else if(OldPass_passwordBox.Password == ActiveUser.Password)
+            else if(OldPass_passwordBox.Password == World.WorldInstance.ActiveUser.Password)
             {
                 OldPass_passwordBox.Background = Brushes.White;
             }
             if(autorization.validateLogin(Login_textBox.Text) && 
                autorization.validatePassword(Password_passwordBox.Password) && 
                (Password_passwordBox.Password == Confirm_passwordBox.Password) &&
-               (OldPass_passwordBox.Password == ActiveUser.Password))
+               (OldPass_passwordBox.Password == World.WorldInstance.ActiveUser.Password))
             {
                 autorization.ChangeUserPassword(Login_textBox.Text, OldPass_passwordBox.Password, Password_passwordBox.Password) ;
                 Cancel_btn_Click(sender, e);
@@ -208,8 +208,8 @@ namespace TornamentManager
             }
             if (autorization.validateLogin(Login_textBox.Text) && autorization.validatePassword(Password_passwordBox.Password) )
             {
-                ActiveUser =  autorization.AutorizeUser(Login_textBox.Text, Password_passwordBox.Password);
-                if (ActiveUser == null)
+                World.WorldInstance.ActiveUser =  autorization.AutorizeUser(Login_textBox.Text, Password_passwordBox.Password);
+                if (World.WorldInstance.ActiveUser == null)
                 {
                     Password_passwordBox.Background = Brushes.Red;
                     Login_textBox.Background = Brushes.Red;
@@ -220,18 +220,19 @@ namespace TornamentManager
                     Password_passwordBox.Password = null;
                     Password_passwordBox.Background = Brushes.White;
                     Confirm_passwordBox.Background = Brushes.White;
-                    
+
+                    //MainWindow = new MainWindow();
                     MainWindow.Show();
                     this.Close();
-                    MainWindow.UserNameTextBlock.Text = ActiveUser.Login;
-                    MainWindow.UserNameLabel.Content = ActiveUser.Login;
+                    MainWindow.UserNameTextBlock.Text = World.WorldInstance.ActiveUser.Login;
+                    MainWindow.UserNameLabel.Content = World.WorldInstance.ActiveUser.Login;
                 }
             }
         }
 
         private void AuthorizationWindow_Closed(object sender, EventArgs e)
         {
-            if (ActiveUser==null)
+            if (World.WorldInstance.ActiveUser==null)
             {
                 MainWindow?.Close();
             }

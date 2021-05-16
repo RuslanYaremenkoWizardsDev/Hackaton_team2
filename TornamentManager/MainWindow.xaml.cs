@@ -65,11 +65,12 @@ namespace TornamentManager
         private void ChangePassButton_Click(object sender, RoutedEventArgs e)
         {
             isPassChange = true;
-            MainForm.Hide();
+            MainForm.Visibility=Visibility.Hidden;
             authorizationForm = new AuthorizationForm();
+            authorizationForm.MainWindow = this;
             authorizationForm.Show();
             authorizationForm.Name_label.Content = "Changing Password";
-            authorizationForm.Login_textBox.Text = authorizationForm.ActiveUser.Login;
+            //authorizationForm.Login_textBox.Text = authorizationForm.ActiveUser.Login;
             authorizationForm.Confirm_lable.Opacity = 100;
             authorizationForm.Confirm_passwordBox.Opacity = 100;
             authorizationForm.OldPass_label.Opacity = 100;
