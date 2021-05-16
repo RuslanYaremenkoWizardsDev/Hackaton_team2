@@ -121,6 +121,7 @@ namespace TornamentManager.AutorizationLogic
                 string userLogin = streamReader.ReadLine();
                 string userPassword = streamReader.ReadLine();
                 EUserPrivileges userPrivilages = (EUserPrivileges)Convert.ToInt32(streamReader.ReadLine());
+                
             }
         }
 

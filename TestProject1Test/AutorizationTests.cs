@@ -144,18 +144,24 @@ namespace TournamentManager.Tests
         public void LoadUsers_OneUser()
         {
             IAutorization autorization = new Autorization();
+            string examplefile = "1" + "\r\n" + "Admin" + "\r\n" + "AdminPwd" + "\r\n" + "1";
+            StreamWriter sw = new StreamWriter("tempSaveUser.txt");
 
+            sw.WriteLine(examplefile);
+            sw.Close();
 
-            IUser actual = autorization.LoadUsers(new StreamReader("tempUser.txt"));
-            
-            var sr = new StreamReader("tempUser.txt");
-            string tmpString = sr.ReadToEnd().Trim();
+            StreamReader sr = new StreamReader("tempSaveUser.txt");
+
+            autorization.LoadUsers(sr);
             sr.Close();
-
-            string expected = "1" + "\r\n" + "Admin" + "\r\n" + "AdminPwd" + "\r\n" + "1";
-            expected = expected.Trim();
-            Assert.AreEqual(expected, tmpString);
             new FileInfo("tempSaveUser.txt").Delete();
+
+            IActiveUser ActiveUser = autorization.AutorizeUser("Admin", "AdminPwd");
+
+            Assert.AreEqual("Admin", ActiveUser.Login);
+            Assert.AreEqual("AdminPwd", ActiveUser.Password);
+            Assert.AreEqual(EUserPrivileges.Admin, ActiveUser.UserPrivilages);
+
         }
     }
 }
