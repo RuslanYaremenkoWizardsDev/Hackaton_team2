@@ -22,15 +22,37 @@ namespace TornamentManager.Tornament
             for (int i = 0; i < countOfColumn; i++)
             {
                 ColumnDefinitions.Add(new ColumnDefinition());
-                Border border = new Border();
-                border.BorderBrush = Brushes.Black;
-                border.BorderThickness = new Thickness(1);
-                TextBlock textBlock = new TextBlock();
-                textBlock.Text = defaultText;
-                border.Child = textBlock;
-                Grid.SetColumn(border, i);
-                Children.Add(border);
             }
+
+            Border border = new Border();
+            border.BorderBrush = Brushes.Black;
+            border.BorderThickness = new Thickness(1);
+            TextBlock textBlock = new TextBlock();
+            textBlock.Name = "Tournament Name";
+            textBlock.Text = tournament.Name;
+            border.Child = textBlock;
+            Grid.SetColumn(border, 0);
+            Children.Add(border);
+
+            border = new Border();
+            border.BorderBrush = Brushes.Black;
+            border.BorderThickness = new Thickness(1);
+            textBlock = new TextBlock();
+            textBlock.Name = "Mode";
+            textBlock.Text = tournament.TournamentMode.ToString();
+            border.Child = textBlock;
+            Grid.SetColumn(border, 1);
+            Children.Add(border);
+            
+            border = new Border();
+            border.BorderBrush = Brushes.Black;
+            border.BorderThickness = new Thickness(1);
+            textBlock = new TextBlock();
+            textBlock.Name = "Place";
+            textBlock.Text = tournament.Place;
+            border.Child = textBlock;
+            Grid.SetColumn(border, 1);
+            Children.Add(border);
         }
     }
 }
