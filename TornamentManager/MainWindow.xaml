@@ -128,42 +128,42 @@
                                 </TextBlock>
                             </Border>
                             <Border Grid.Row ="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
-                                <TextBlock x:Name="Cup_Number" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                                <TextBlock x:Name="CupNumber_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
 
                                 </TextBlock>
                             </Border>
                             <Border Grid.Row ="1" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
-                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                                <TextBlock x:Name="CupActive_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
 
                                 </TextBlock>
                             </Border>
                             <Border Grid.Row ="1" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
-                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                                <TextBlock x:Name="CupFinished_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
 
                                 </TextBlock>
                             </Border>
                             <Border Grid.Row ="1" Grid.Column="4" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
-                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                                <TextBlock x:Name="CupCancelled_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
 
                                 </TextBlock>
                             </Border>
                             <Border Grid.Row ="2" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
-                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                                <TextBlock x:Name="ChampionshipNumber_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
 
                                 </TextBlock>
                             </Border>
                             <Border Grid.Row ="2" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
-                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                                <TextBlock x:Name="ChampionshipActive_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
 
                                 </TextBlock>
                             </Border>
                             <Border Grid.Row ="2" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
-                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                                <TextBlock x:Name="ChampionshipFinished_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
 
                                 </TextBlock>
                             </Border>
                             <Border Grid.Row ="2" Grid.Column="4" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
-                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                                <TextBlock x:Name="ChampionshipCancelled_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
 
                                 </TextBlock>
                             </Border>
@@ -189,22 +189,22 @@
                                 </TextBlock>
                             </Border>
                             <Border Grid.Row="3" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
-                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                                <TextBlock x:Name="TotalNumber_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
 
                                 </TextBlock>
                             </Border>
                             <Border Grid.Row="3" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
-                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                                <TextBlock x:Name="TotalActive_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
 
                                 </TextBlock>
                             </Border>
                             <Border Grid.Row="3" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
-                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                                <TextBlock x:Name="TotalFinished_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
 
                                 </TextBlock>
                             </Border>
                             <Border Grid.Row="3" Grid.Column="4" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
-                                <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                                <TextBlock x:Name="TotalCancelled_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
 
                                 </TextBlock>
                             </Border>
