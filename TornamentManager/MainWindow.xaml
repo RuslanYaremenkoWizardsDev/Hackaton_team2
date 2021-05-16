@@ -1,11 +1,11 @@
-﻿<Window
+﻿    <Window x:Name="MainForm" x:Class="TornamentManager.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TornamentManager"
         xmlns:tornament="clr-namespace:TornamentManager.Tornament"
-        xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock" x:Class="TornamentManager.MainWindow"
+        xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock" 
         mc:Ignorable="d"
         Title="Tornament Manager" Height="783" Width="1442" Background="#FFC7C1C1">
     <Grid>
@@ -236,8 +236,8 @@
             <Label.ContextMenu>
                 <ContextMenu>
                     <TextBlock x:Name="UserNameTextBlock" Text="User"/>
-                    <Button Content="Change Password" Height="20"/>
-                    <Button Content="LogOut" Height="20"/>
+                    <Button x:Name="ChangePassButton" Content="Change Password" Height="20" Click="ChangePassButton_Click"/>
+                    <Button x:Name="LogOutButton" Content="LogOut" Height="20" Click="LogOutButton_Click"/>
                 </ContextMenu>
             </Label.ContextMenu>
         </Label>

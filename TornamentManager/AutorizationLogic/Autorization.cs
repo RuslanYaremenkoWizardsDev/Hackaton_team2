@@ -10,6 +10,18 @@ namespace TornamentManager.AutorizationLogic
     public class Autorization : IAutorization
     {
         private List<IUser> usersList = new List<IUser>();
+        public Autorization()
+        {
+            StreamReader sr = new StreamReader("AutorizationLogic/AutorizationData.txt");
+            LoadUsers(sr);
+            sr.Close();
+        }
+         ~Autorization()
+        {
+            StreamWriter sw = new StreamWriter("AutorizationLogic/AutorizationData.txt");
+            SaveUsers(sw);
+            sw.Close();
+        }
         public IActiveUser AutorizeUser(string login, string password)
         {
             if (validateLogin(login) && validatePassword(password))
@@ -121,6 +133,7 @@ namespace TornamentManager.AutorizationLogic
                 string userLogin = streamReader.ReadLine();
                 string userPassword = streamReader.ReadLine();
                 EUserPrivileges userPrivilages = (EUserPrivileges)Convert.ToInt32(streamReader.ReadLine());
+                usersList.Add(new User(userLogin, userPassword, userPrivilages));
             }
         }
 
@@ -131,19 +144,50 @@ namespace TornamentManager.AutorizationLogic
             {
                 streamWriter.WriteLine(u.Login);
                 streamWriter.WriteLine(u.Password);
-                streamWriter.WriteLine(u.UserPrivilages.ToString());
+                streamWriter.WriteLine(((int)(u.UserPrivilages)).ToString());
             }
             streamWriter.Close();
         }
 
         public bool validateLogin(string login)
         {
-            return universalValidate(login);
+            if( universalValidate(login))
+
+            {
+                if (login.Length>=1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
         public bool validatePassword(string password)
         {
-            return universalValidate(password);
+            if (universalValidate(password))
+
+            {
+                if (password.Length >= 3)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private bool universalValidate(string str)
@@ -156,16 +200,24 @@ namespace TornamentManager.AutorizationLogic
                 "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"
             };
             bool allCharsAllowed = true;
-            for (int i = 0; i <= str.Length - 1; i++)
+            
+            if (str!=null && str.Length<=12)
             {
-                string currentChar = str.Substring(i, 1);
-                if (Array.IndexOf(allowedChars, currentChar.ToLower()) == -1)
+                for (int i = 0; i <= str.Length - 1; i++)
                 {
-                    allCharsAllowed = false;
-                    break;
+                    string currentChar = str.Substring(i, 1);
+                    if (Array.IndexOf(allowedChars, currentChar.ToLower()) == -1)
+                    {
+                        allCharsAllowed = false;
+                        break;
+                    }
                 }
+                return allCharsAllowed;
             }
-            return allCharsAllowed;
+            else
+            {
+                return false;
+            }  
         }
     }
 }

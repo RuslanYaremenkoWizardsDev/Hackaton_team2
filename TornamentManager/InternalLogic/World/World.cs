@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using TornamentManager.AutorizationLogic;
 using TornamentManager.Tornament;
 
 namespace TornamentManager
@@ -31,6 +32,9 @@ namespace TornamentManager
                 return _instance;
             }
         }
+
+        public IActiveUser ActiveUser { get ; set ; }
+
         private World()
         {
             TournamentsList = new TournamentsListClass();
