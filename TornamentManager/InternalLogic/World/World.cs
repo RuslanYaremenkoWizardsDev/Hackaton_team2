@@ -33,7 +33,5 @@ namespace TornamentManager
             TournamentsList = new TournamentsListClass();
             TeamList = new TeamDictionary();
         }
-
     }
-
 }
