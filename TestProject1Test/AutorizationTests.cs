@@ -125,7 +125,7 @@ namespace TournamentManager.Tests
             IUser actual = autorization.CreateUser("Admin", "AdminPwd", EUserPrivileges.Admin);
             autorization.SaveUsers(new StreamWriter("tempSaveUser.txt"));
 
-            actual = autorization.CreateUser("SuperAdmin", "SuperAdminPwd", EUserPrivileges.Admin);
+            actual = autorization.CreateUser("SuperAdmin", "SuperAdminPw", EUserPrivileges.Admin);
             autorization.SaveUsers(new StreamWriter("tempSaveUser.txt"));
 
             var sr = new StreamReader("tempSaveUser.txt");
@@ -133,7 +133,7 @@ namespace TournamentManager.Tests
             sr.Close();
 
             string expected = "2" + "\r\n" + "Admin" + "\r\n" + "AdminPwd" + "\r\n" + "1" +"\r\n";
-            expected +=  "SuperAdmin" + "\r\n" + "SuperAdminPwd" + "\r\n" + "1";
+            expected +=  "SuperAdmin" + "\r\n" + "SuperAdminPw" + "\r\n" + "1";
 
             expected = expected.Trim();
             Assert.AreEqual(expected, tmpString);
