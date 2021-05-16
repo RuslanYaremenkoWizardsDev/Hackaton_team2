@@ -21,9 +21,13 @@ namespace TornamentManager
     /// </summary>
     public partial class MainWindow : Window
     {
+        AuthorizationForm authorizationForm = new AuthorizationForm();
         public MainWindow()
         {
             InitializeComponent();
+            MainForm.Hide();
+            authorizationForm.Show();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
