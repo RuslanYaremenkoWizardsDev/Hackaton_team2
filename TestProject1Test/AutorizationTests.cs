@@ -102,5 +102,18 @@ namespace TournamentManager.Tests
             actual = autorization.CreateUser(login, password, userPrivilages);
             Assert.Null(actual);
         }
+        [Test]
+        public void SaveUsers_OneUser()
+        {
+            IAutorization autorization = new Autorization();
+            IUser actual = autorization.CreateUser("Admin", "AdminPwd", EUserPrivileges.Admin);
+            autorization.SaveUsers(new StreamWriter("C:/temp.txt"));
+
+            string tmpString = new StreamReader("C:/temp.txt").ReadToEnd().Trim();
+            string expected = "1" + "\r\n"+"Admin"+"\r\n"+"AdminPwd"+"\r\n"+"1";
+            expected = expected.Trim();
+            Assert.AreEqual(expected, tmpString);
+            new FileInfo("C:/temp.txt").Delete();
+        }
     }
 }
