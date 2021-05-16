@@ -15,15 +15,15 @@ namespace TornamentManager.AutorizationLogic
             IUser tmpUser = null;
             foreach (IUser u in usersList)
             {
-                
-                if (u.Login==login)
+
+                if (u.Login == login)
                 {
                     tmpUser = u;
                     break;
                 }
-                
+
             }
-            
+
             if (tmpUser == null)
             {
                 return null;
@@ -44,21 +44,21 @@ namespace TornamentManager.AutorizationLogic
         public bool ChangeUserPassword(string login, string oldPassword, string newPassword)
         {
             IUser tmpUser = null;
-            foreach (IUser u in usersList  )
+            foreach (IUser u in usersList)
             {
-                if (u.Login==login)
+                if (u.Login == login)
                 {
                     tmpUser = u;
                     break;
                 }
             }
-            if (tmpUser==null)
+            if (tmpUser == null)
             {
                 return false;
             }
             else
             {
-                if ( tmpUser.Password==oldPassword)
+                if (tmpUser.Password == oldPassword)
                 {
                     tmpUser.Password = newPassword;
                     return true;
@@ -75,7 +75,7 @@ namespace TornamentManager.AutorizationLogic
             bool uniqueUser = true;
             foreach (IUser u in usersList)
             {
-                if (u.Login==login)
+                if (u.Login == login)
                 {
                     uniqueUser = false;
                     break;
