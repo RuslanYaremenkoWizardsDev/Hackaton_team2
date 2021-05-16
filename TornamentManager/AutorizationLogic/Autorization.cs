@@ -10,6 +10,18 @@ namespace TornamentManager.AutorizationLogic
     public class Autorization : IAutorization
     {
         private List<IUser> usersList = new List<IUser>();
+        public Autorization()
+        {
+            StreamReader sr = new StreamReader("AutorizationLogic/AutorizationData.txt");
+            LoadUsers(sr);
+            sr.Close();
+        }
+         ~Autorization()
+        {
+            StreamWriter sw = new StreamWriter("AutorizationLogic/AutorizationData.txt");
+            SaveUsers(sw);
+            sw.Close();
+        }
         public IActiveUser AutorizeUser(string login, string password)
         {
             if (validateLogin(login) && validatePassword(password))
@@ -205,9 +217,7 @@ namespace TornamentManager.AutorizationLogic
             else
             {
                 return false;
-            }
-            
-            
+            }  
         }
     }
 }
