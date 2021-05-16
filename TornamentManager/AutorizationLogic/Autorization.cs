@@ -16,6 +16,12 @@ namespace TornamentManager.AutorizationLogic
             LoadUsers(sr);
             sr.Close();
         }
+         ~Autorization()
+        {
+            StreamWriter sw = new StreamWriter("AutorizationLogic/AutorizationData.txt");
+            SaveUsers(sw);
+            sw.Close();
+        }
         public IActiveUser AutorizeUser(string login, string password)
         {
             if (validateLogin(login) && validatePassword(password))
