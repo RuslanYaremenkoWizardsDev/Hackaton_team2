@@ -20,5 +20,6 @@ namespace TornamentManager
         void AddTournament(ITournament tournament);
         void RemoveTournamentByID(int ID);
         ITournament GetTournamentByID(int ID);
+        void TriggerListChangedEvent();
     }
 }
