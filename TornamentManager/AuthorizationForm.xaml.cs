@@ -66,6 +66,7 @@ namespace TornamentManager
                 Login_textBox.Background = Brushes.White;
                 Password_passwordBox.Background = Brushes.White;
                 Confirm_passwordBox.Background = Brushes.White;
+                
             }
             else
             {
@@ -96,6 +97,10 @@ namespace TornamentManager
                 if(autorization.validateLogin(Login_textBox.Text) && autorization.validatePassword(Password_passwordBox.Password) && Password_passwordBox.Password == Confirm_passwordBox.Password)
                 {
                     autorization.CreateUser(Login_textBox.Text, Password_passwordBox.Password, EUserPrivileges.Admin);
+
+                    System.IO.StreamWriter sw = new System.IO.StreamWriter("AutorizationLogic/AutorizationData.txt");
+                    autorization.SaveUsers(sw);
+                    sw.Close();
                     Login_textBox.Text = null;
                     Password_passwordBox.Password = null;
                     Confirm_passwordBox.Password = null;
@@ -110,7 +115,7 @@ namespace TornamentManager
 
         private void Cancel_btn_Click(object sender, RoutedEventArgs e)
         {
-            if (!_isPassChange)
+            if (_isPassChange)
             {
                 this.Hide();
                 MainWindow.Show();
@@ -215,11 +220,20 @@ namespace TornamentManager
                     Password_passwordBox.Password = null;
                     Password_passwordBox.Background = Brushes.White;
                     Confirm_passwordBox.Background = Brushes.White;
-                    this.Hide();
+                    
                     MainWindow.Show();
+                    this.Close();
                     MainWindow.UserNameTextBlock.Text = ActiveUser.Login;
                     MainWindow.UserNameLabel.Content = ActiveUser.Login;
                 }
+            }
+        }
+
+        private void AuthorizationWindow_Closed(object sender, EventArgs e)
+        {
+            if (ActiveUser==null)
+            {
+                MainWindow?.Close();
             }
         }
     }

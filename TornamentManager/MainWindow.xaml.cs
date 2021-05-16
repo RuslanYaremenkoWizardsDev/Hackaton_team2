@@ -66,6 +66,7 @@ namespace TornamentManager
         {
             isPassChange = true;
             MainForm.Hide();
+            authorizationForm = new AuthorizationForm();
             authorizationForm.Show();
             authorizationForm.Name_label.Content = "Changing Password";
             authorizationForm.Login_textBox.Text = authorizationForm.ActiveUser.Login;
