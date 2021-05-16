@@ -97,7 +97,7 @@ namespace TornamentManager.Tornament
             border.BorderThickness = new Thickness(1);
             textBlock = new TextBlock();
             textBlock.Name = "Participants";
-            textBlock.Text = tournament.NumberOfParticipants.ToString();
+            textBlock.Text = $"{tournament.Players.Count}/{tournament.NumberOfParticipants}";
             border.Child = textBlock;
             Grid.SetColumn(border, 7);
             Children.Add(border);
