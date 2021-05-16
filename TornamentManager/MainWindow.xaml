@@ -192,6 +192,39 @@
                     <Grid Grid.Row="1" Margin="0,34,0,0"/>
                 </Grid>
             </TabItem>
+            <TabItem Header="Participants" Margin="-2,0,-2,0">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FFC7C1C1" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Margin="5,5,5,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="44*"/>
+                        <RowDefinition Height="44*"/>
+                        <RowDefinition Height="523*"/>
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Row="0" HorizontalAlignment="Center">
+                        <Button DockPanel.Dock="Left" Content="Add Participant" BorderBrush="Black" Background="#FFB7AEAE"  Margin="5,5,5,5" Click="Button_Click" Width="1387"/>
+                    </DockPanel>
+                    <Grid Grid.Row="1" Height="20" Margin="2,2,20,2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,1,1">
+                            <TextBlock  Text="Participant Name"/>
+                        </Border>
+                        <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,1,1">
+                            <TextBlock Text="Actions"/>
+                        </Border>
+                    </Grid>
+                    <ScrollViewer  Grid.Row="2">
+                        <StackPanel x:Name="ParticipantsList" Background="#FFE2E2E2" Margin="2,2,2,2"/>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
         </TabControl>
         <Label x:Name="UserNameLabel" Content="User" HorizontalAlignment="Right" Margin="956,3,0,0" VerticalAlignment="Top" Height="23" Width="64" FontSize="10" BorderBrush="#FF8A0202" Foreground="Black" FontWeight="Bold">
             <Label.ContextMenu>
