@@ -121,6 +121,7 @@ namespace TornamentManager.AutorizationLogic
                 string userLogin = streamReader.ReadLine();
                 string userPassword = streamReader.ReadLine();
                 EUserPrivileges userPrivilages = (EUserPrivileges)Convert.ToInt32(streamReader.ReadLine());
+                usersList.Add(new User(userLogin, userPassword, userPrivilages));
             }
         }
 
@@ -131,7 +132,7 @@ namespace TornamentManager.AutorizationLogic
             {
                 streamWriter.WriteLine(u.Login);
                 streamWriter.WriteLine(u.Password);
-                streamWriter.WriteLine(u.UserPrivilages.ToString());
+                streamWriter.WriteLine(((int)(u.UserPrivilages)).ToString());
             }
             streamWriter.Close();
         }
@@ -188,7 +189,7 @@ namespace TornamentManager.AutorizationLogic
             };
             bool allCharsAllowed = true;
             
-            if (str!=null)
+            if (str!=null && str.Length<=12)
             {
                 for (int i = 0; i <= str.Length - 1; i++)
                 {
