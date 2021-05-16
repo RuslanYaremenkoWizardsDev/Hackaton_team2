@@ -47,7 +47,6 @@ namespace TornamentManager.AutorizationLogic
 
         public bool ChangeUserPassword(string login, string oldPassword, string newPassword)
         {
-
             if (validateLogin(login) && validatePassword(oldPassword) && validatePassword(newPassword))
             {
                 IUser tmpUser = null;

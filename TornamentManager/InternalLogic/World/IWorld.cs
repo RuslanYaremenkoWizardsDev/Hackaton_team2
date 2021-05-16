@@ -9,7 +9,8 @@ namespace TornamentManager
     public interface IWorld
     {
         public static IWorld WorldInstance { get; }
-        public IList<ITournament> Tournaments { get; }
+        public ITournamentsList TournamentsList { get; }
+        
 
         public TeamDictionary TeamDictionary { get; }
     }

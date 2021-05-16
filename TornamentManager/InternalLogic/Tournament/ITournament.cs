@@ -10,6 +10,7 @@ namespace TornamentManager
     {
         string Name { get; set; }
         string Description { get; set; }
+        int ID { get; }
         ETournamentModes TournamentMode { get; set; }
         string Place { get; set; }
         DateTime StartDateTime { get; set; }

@@ -20,5 +20,4 @@ namespace TornamentManager.AutorizationLogic
             _loginTimeDate = DateTime.Now;
         }
     }
-
 }

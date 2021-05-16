@@ -19,6 +19,5 @@ namespace TornamentManager.AutorizationLogic
 
         public bool validateLogin(string login);
         public bool validatePassword(string password);
-
     }
 }

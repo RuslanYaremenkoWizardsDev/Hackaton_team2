@@ -9,11 +9,10 @@ namespace TornamentManager
     public class World : IWorld
     {
         static World _instance;
-        private IList<ITournament> _tournaments;
-        private TeamDictionary _teamDictionary;
+        public TeamDictionary _teamDictionary;
         private World()
         {
-
+            TournamentsList = new TournamentsListClass();
         }
 
         public static IWorld WorldInstance
@@ -28,10 +27,7 @@ namespace TornamentManager
             }
         }
 
-        IList<ITournament> IWorld.Tournaments
-        {
-            get => _tournaments;
-        }
+        public ITournamentsList TournamentsList { get;private set; }
 
         TeamDictionary IWorld.TeamDictionary
         {
