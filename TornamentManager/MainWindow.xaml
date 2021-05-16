@@ -1,19 +1,19 @@
-﻿<Window x:Class="TornamentManager.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TornamentManager"
         xmlns:tornament="clr-namespace:TornamentManager.Tornament"
+        xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock" x:Class="TornamentManager.MainWindow"
         mc:Ignorable="d"
         Title="Tornament Manager" Height="660" Width="1030" Background="#FFC7C1C1">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="152*"/>
         </Grid.RowDefinitions>
-
-        <TabControl Grid.Row="1" Margin="0,3,0,0" Background="#FFC7C1C1">
-            <TabItem Header="Tornaments">
+        <TabControl Grid.Row="1" Margin="0,3,0,0" Background="#FFC7C1C1" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Header="Tournaments">
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#FFF0F0F0"/>
@@ -27,9 +27,9 @@
                         <RowDefinition Height="523*"/>
                     </Grid.RowDefinitions>
                     <DockPanel Grid.Row="0" HorizontalAlignment="Left">
-                        <Button DockPanel.Dock="Left" Content="Create Tornament" BorderBrush="Black" Background="#FFB7AEAE" Height="30" Width="190" Margin="5,5,5,5" Click="Button_Click" />
-                        <Button DockPanel.Dock="Left" Content="Save Tornaments" BorderBrush="Black" Background="#FFB7AEAE"  Height="30" Width="190" Margin="5,5,5,5"/>
-                        <Button DockPanel.Dock="Left" Content="Load Tornaments" BorderBrush="Black" Background="#FFB7AEAE"  Height="30" Width="190" Margin="5,5,5,5"/>
+                        <Button DockPanel.Dock="Left" Content="Create Tournament" BorderBrush="Black" Background="#FFB7AEAE" Height="30" Width="190" Margin="5,5,5,5" Click="Button_Click" />
+                        <Button DockPanel.Dock="Left" Content="Save Tournaments" BorderBrush="Black" Background="#FFB7AEAE"  Height="30" Width="190" Margin="5,5,5,5"/>
+                        <Button DockPanel.Dock="Left" Content="Load Tournaments" BorderBrush="Black" Background="#FFB7AEAE"  Height="30" Width="190" Margin="5,5,5,5"/>
                     </DockPanel>
                     <Grid Grid.Row="1" Height="20" Margin="2,2,20,2">
                         <Grid.ColumnDefinitions>
@@ -42,7 +42,6 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-
                         <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,1,1">
                             <TextBlock  Text="Name"/>
                         </Border>
@@ -71,24 +70,126 @@
                     <ScrollViewer  Grid.Row="2">
                         <StackPanel x:Name="TornamentsList" Background="#FFE2E2E2" Margin="2,2,2,2"/>
                     </ScrollViewer>
-                    
-
-
                 </Grid>
-
             </TabItem>
-            <TabItem Header="Tornament statistic">
+            <TabItem Header="Tournaments statistic">
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#FFF0F0F0"/>
                         <GradientStop Color="#FFC7C1C1" Offset="1"/>
                     </LinearGradientBrush>
                 </TabItem.Background>
-
+                <Grid Margin="5,5,5,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="46*"/>
+                        <RowDefinition Height="557*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="1" Margin="0,34,0,0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="45*"/>
+                                <RowDefinition Height="45*"/>
+                                <RowDefinition Height="45*"/>
+                                <RowDefinition Height="45*"/>
+                                <RowDefinition Height="100*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="28*"/>
+                                <ColumnDefinition Width="28*"/>
+                                <ColumnDefinition Width="28*"/>
+                                <ColumnDefinition Width="28*"/>
+                                <ColumnDefinition Width="28*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="Mode of tournaments" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="Cup" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border Grid.Row="2" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0" Grid.RowSpan="1">
+                                <TextBlock Text="Championship" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="Number " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border Grid.Row ="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock x:Name="CupNumber_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border Grid.Row ="1" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock x:Name="CupActive_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border Grid.Row ="1" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock x:Name="CupFinished_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border Grid.Row ="1" Grid.Column="4" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock x:Name="CupCancelled_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border Grid.Row ="2" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock x:Name="ChampionshipNumber_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border Grid.Row ="2" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock x:Name="ChampionshipActive_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border Grid.Row ="2" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock x:Name="ChampionshipFinished_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border Grid.Row ="2" Grid.Column="4" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock x:Name="ChampionshipCancelled_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,1,1">
+                                <TextBlock Text="Active" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="Finished" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border Grid.Column="4" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="Cancelled" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border Grid.Row="3" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock Text="Total" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border Grid.Row="3" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock x:Name="TotalNumber_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border Grid.Row="3" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock x:Name="TotalActive_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border Grid.Row="3" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock x:Name="TotalFinished_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border Grid.Row="3" Grid.Column="4" BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+                                <TextBlock x:Name="TotalCancelled_textBox" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                    <DockPanel Grid.Row="0" HorizontalAlignment="Center" Width="0"/>
+                    <TextBlock Text="Tournaments" TextWrapping="Wrap" VerticalAlignment="Center" Height="43" FontSize="20" FontWeight="Bold" TextAlignment="Center" Margin="442,0,419,0"/>
+                </Grid>
             </TabItem>
-
-
+            <TabItem Header="Players statistics" Margin="-2,0,-2,0">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FFC7C1C1" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Margin="5,5,5,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="46*"/>
+                        <RowDefinition Height="557*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="1" Margin="0,34,0,0"/>
+                </Grid>
+            </TabItem>
         </TabControl>
-        <Label x:Name="LogOutLabel" Content="Log out" HorizontalAlignment="Right" Margin="956,3,0,0" VerticalAlignment="Top" Height="23" Width="64" FontSize="10" BorderBrush="#FF8A0202" Foreground="Black" FontWeight="Bold"/>
+        <Label x:Name="UserNameLabel" Content="User" HorizontalAlignment="Right" Margin="956,3,0,0" VerticalAlignment="Top" Height="23" Width="64" FontSize="10" BorderBrush="#FF8A0202" Foreground="Black" FontWeight="Bold">
+            <Label.ContextMenu>
+                <ContextMenu>
+                    <TextBlock x:Name="UserNameTextBlock" Text="User"/>
+                    <Button Content="Change Password" Height="20"/>
+                    <Button Content="LogOut" Height="20"/>
+                </ContextMenu>
+            </Label.ContextMenu>
+        </Label>
     </Grid>
 </Window>

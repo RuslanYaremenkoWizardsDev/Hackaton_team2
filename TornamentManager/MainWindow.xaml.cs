@@ -31,5 +31,10 @@ namespace TornamentManager
             CreateTournamentForm createTornamentForm = new CreateTournamentForm();
             createTornamentForm.Show();
         }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
