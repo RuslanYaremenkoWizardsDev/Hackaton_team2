@@ -24,7 +24,7 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <TextBox x:Name="TournamentNameTextBox" Grid.Column="0" Text="Name" TextAlignment="Center"/>
+                        <TextBox x:Name="TournamentNameTextBox" Grid.Column="0" Text="Name" TextAlignment="Center" MaxLength="255" TextWrapping="Wrap"/>
                         <ComboBox x:Name="TournamentStatusComboBox" Grid.Column="1">
                             <ComboBoxItem Content="Active" IsSelected="True"/>
                             <ComboBoxItem Content="Ended" />
@@ -35,8 +35,8 @@
                             <RowDefinition Height="25"/>
                             <RowDefinition Height="200*"/>
                         </Grid.RowDefinitions>
-                        <TextBox x:Name="PlaceTextBox" Grid.Row="0" Text="Place"/>
-                        <TextBox x:Name="DescriptionTextBox" Grid.Row="1" Text="Description"/>
+                        <TextBox x:Name="PlaceTextBox" Grid.Row="0" Text="Place" MaxLength="255" TextWrapping="Wrap"/>
+                        <TextBox x:Name="DescriptionTextBox" Grid.Row="1" Text="Description" MaxLength="10000" TextWrapping="Wrap"/>
                     </Grid>
                     <Grid Grid.Column="1" Grid.Row="0" Height="25">
                         <Grid.ColumnDefinitions>
