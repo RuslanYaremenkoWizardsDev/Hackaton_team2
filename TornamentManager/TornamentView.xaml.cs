@@ -55,9 +55,9 @@ namespace TornamentManager
             TournamentLevelsComboBox.ItemsSource = levels;
             TournamentLevelsComboBox.SelectedItem = tournament.TournamentLevel;
 
+            AllParticipantsNamesDGrid.ItemsSource = World.WorldInstance.TeamDictionary;
+
             PrepareNumberOfParticipantsComboBox();
-
-
         }
         private void StartDatePicker_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {

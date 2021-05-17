@@ -84,9 +84,7 @@ namespace TornamentManager
         {
             ITeamClass participant = new TeamClass(ParticipantNameTextBox.Text);
             ITeamDictionary teamDictionary = new TeamDictionary();
-            teamDictionary.TeamList.Add(participant);
-            
-
+            //teamDictionary.TeamList.Add(participant);
         }
     }
 }

@@ -85,7 +85,14 @@
                     <DataGrid x:Name="AllParticipantsNamesDGrid" Grid.Column="0">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="All participants"/>
-                            <DataGridTextColumn Header="Action"/>
+                            <DataGridTemplateColumn Header="Action">
+                                <DataGridTemplateColumn.CellTemplateSelector>
+                                    <DataTemplateSelector/>
+                                </DataGridTemplateColumn.CellTemplateSelector>
+                                <DataGridTemplateColumn.CellEditingTemplateSelector>
+                                    <DataTemplateSelector/>
+                                </DataGridTemplateColumn.CellEditingTemplateSelector>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
 
                     </DataGrid>
