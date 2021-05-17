@@ -77,7 +77,26 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Participants ">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="AllParticipantsNamesDGrid" Grid.Column="0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="All participants"/>
+                            <DataGridTextColumn Header="Action"/>
+                        </DataGrid.Columns>
 
+                    </DataGrid>
+                    <DataGrid x:Name="TournamentParticipantsNamesDGrid" Grid.Column="1">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Tournament participants"/>
+                            <DataGridTextColumn Header="Action"/>
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+                </Grid>
             </TabItem>
             <TabItem Header="Tournament statistics"/>
         </TabControl>

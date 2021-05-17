@@ -56,6 +56,8 @@ namespace TornamentManager
             TournamentLevelsComboBox.SelectedItem = tournament.TournamentLevel;
 
             PrepareNumberOfParticipantsComboBox();
+
+
         }
         private void StartDatePicker_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
