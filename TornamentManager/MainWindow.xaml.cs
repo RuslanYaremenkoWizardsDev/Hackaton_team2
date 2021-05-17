@@ -79,5 +79,14 @@ namespace TornamentManager
             authorizationForm.Change_btn.Opacity = 100;
             authorizationForm.Cancel_btn.Opacity = 100;
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ITeamClass participant = new TeamClass(ParticipantNameTextBox.Text);
+            ITeamDictionary teamDictionary = new TeamDictionary();
+            teamDictionary.TeamList.Add(participant);
+            
+
+        }
     }
 }
