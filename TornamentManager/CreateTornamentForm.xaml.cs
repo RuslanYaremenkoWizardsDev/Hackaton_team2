@@ -49,6 +49,7 @@ namespace TornamentManager
         private void StartDatePicker_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             LastRegistrationDatePicker.Maximum = ((DateTime)StartDatePicker.Value).AddSeconds(2);
+            LastRegistrationDatePicker.Minimum = DateTime.Now;
             LastRegistrationDatePicker.DefaultValue = ((DateTime)StartDatePicker.Value).AddSeconds(1);
 
             if (!_skipEvent)
