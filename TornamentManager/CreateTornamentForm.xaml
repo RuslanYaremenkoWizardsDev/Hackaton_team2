@@ -1,0 +1,97 @@
+﻿<Window x:Class="TornamentManager.CreateTournamentForm"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TornamentManager"
+        mc:Ignorable="d"
+        Title="Create Tornament Form" Height="626" Width="984" Background="#FFC7C1C1">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="140*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
+            <TextBlock Text="Tornament Name:"  DockPanel.Dock="Top"/>
+            <TextBox x:Name="TournamentName" DockPanel.Dock="Bottom" TextWrapping="Wrap" MaxLength="255" Background="#FFE2E2E2"/>
+        </DockPanel>
+        <DockPanel Grid.Row ="1">
+            <TextBlock DockPanel.Dock="Top" Text="Tornament Description"/>
+            <ScrollViewer DockPanel.Dock="Bottom">
+                <TextBox x:Name="TournamentDescription" MaxLength="10000" TextWrapping="Wrap" Background="#FFE2E2E2"/>
+            </ScrollViewer>
+        </DockPanel>
+        <DockPanel Grid.Row="2" >
+            <TextBlock DockPanel.Dock="Top" Text="Tornament mode"/>
+            <ComboBox Name="TornamentModesComboBox" DockPanel.Dock="Bottom" Margin="5,5,5,5" HorizontalAlignment="Stretch" SelectionChanged="TornamentModesComboBox_SelectionChanged">
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FFE2E2E2" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
+            </ComboBox>
+        </DockPanel>
+        <DockPanel Grid.Row="3">
+            <TextBlock Text="Place"  DockPanel.Dock="Top"/>
+            <TextBox x:Name="TournamentPlace" DockPanel.Dock="Bottom" TextWrapping="Wrap" Background="#FFE2E2E2"/>
+        </DockPanel>
+
+        <DockPanel Grid.Row="4">
+            <TextBlock Text="StartDate"  DockPanel.Dock="Top"/>
+            <xctk:DateTimePicker Name="StartDatePicker" ValueChanged="StartDatePicker_ValueChanged" Background="#FFE2E2E2"/>
+        </DockPanel>
+
+        <DockPanel Grid.Row="5">
+            <TextBlock Text="Last Registration Date"  DockPanel.Dock="Top"/>
+            <xctk:DateTimePicker Name="LastRegistrationDatePicker" Background="#FFE2E2E2" IsEnabled="False" DisplayDefaultValueOnEmptyText="True" />
+        </DockPanel>
+
+        <DockPanel Grid.Row="6">
+            <TextBlock Text="Level"  DockPanel.Dock="Top"/>
+            <ComboBox Name="TournamentLevelsComboBox" DockPanel.Dock="Bottom" Margin="5,5,5,5" HorizontalAlignment="Stretch">
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FFE2E2E2" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
+            </ComboBox>
+        </DockPanel>
+
+        <DockPanel Grid.Row="7">
+            <TextBlock Text="Number of participants"  DockPanel.Dock="Top"/>
+            <ComboBox Name="NumberOfParticipantsComboBox" DockPanel.Dock="Bottom" Margin="5,5,5,5" HorizontalAlignment="Stretch">
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FFE2E2E2" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
+            </ComboBox>
+        </DockPanel>
+
+        <DockPanel Grid.Row="8">
+            <TextBlock Text="Scenario for tournament"  DockPanel.Dock="Top"/>
+            <ComboBox Name="TournamentScenariosComboBox" DockPanel.Dock="Bottom" Margin="5,5,5,5" HorizontalAlignment="Stretch">
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FFE2E2E2" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
+            </ComboBox>
+        </DockPanel>
+
+        <Button Grid.Row ="9" Content="Create Tournament" Margin="5,5,5,5" Click="BtnCreateTournament_Click"/>
+    </Grid>
+</Window>
