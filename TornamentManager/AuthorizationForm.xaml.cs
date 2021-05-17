@@ -181,10 +181,16 @@ namespace TornamentManager
                (OldPass_passwordBox.Password == World.WorldInstance.ActiveUser.Password))
             {
                 autorization.ChangeUserPassword(Login_textBox.Text, OldPass_passwordBox.Password, Password_passwordBox.Password) ;
-                Cancel_btn_Click(sender, e);
                 OldPass_label.Opacity = 0;
                 OldPass_passwordBox.Opacity = 0;
                 Change_btn.Opacity = 0;
+                Confirm_lable.Opacity = 0;
+                Confirm_passwordBox.Opacity = 0;
+                Cancel_btn.Opacity = 0;
+                SignIn_btn.Opacity = 100;
+                SignUp_btn.Opacity = 100;
+                Name_label.Content = "Authorization";
+                Password_lable.Content = "Password";
             }
         }
 
@@ -220,6 +226,7 @@ namespace TornamentManager
                     Password_passwordBox.Password = null;
                     Password_passwordBox.Background = Brushes.White;
                     Confirm_passwordBox.Background = Brushes.White;
+                    
                     MainWindow.Show();
                     this.Close();
                     MainWindow.UserNameTextBlock.Text = World.WorldInstance.ActiveUser.Login;
@@ -230,7 +237,7 @@ namespace TornamentManager
 
         private void AuthorizationWindow_Closed(object sender, EventArgs e)
         {
-            if (World.WorldInstance.ActiveUser==null)
+            if (World.WorldInstance.ActiveUser == null)
             {
                 MainWindow?.Close();
             }
