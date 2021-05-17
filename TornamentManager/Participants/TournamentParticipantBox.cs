@@ -9,11 +9,12 @@ using System.Windows.Media;
 
 namespace TornamentManager.Participants
 {
-    public class ParticipantsBox : Grid, IParticipantBox
+    public class TournamentParticipantBox : Grid, IParticipantBox
     {
         private const int countOfColumn = 2;
         public int ID { get; private set; }
-        public ParticipantsBox(ITeamClass participant)
+
+        public TournamentParticipantBox(ITeamClass participant)
         {
             ID = participant.ID;
             Thickness marginThickness = new Thickness(2);
@@ -38,7 +39,7 @@ namespace TornamentManager.Participants
             border.BorderBrush = Brushes.Black;
             border.BorderThickness = new Thickness(1);
             Button button = new Button();
-            button.Content = "Remove";
+            button.Content = "Move";
             button.Margin = new Thickness(2);
             World world = (World)World.WorldInstance;
             button.Click += Button_Move_Click;
@@ -50,11 +51,22 @@ namespace TornamentManager.Participants
 
         public void Button_Move_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button)
+            StackPanel stackPanel = (StackPanel)(((TournamentParticipantBox)(((Border)(((Button)sender).Parent)).Parent)).Parent);
+            ScrollViewer scrollViewer = (ScrollViewer)stackPanel.Parent;
+            Grid grid = (Grid)scrollViewer.Parent;
+
+            foreach (var c in grid.Children)
             {
-                Button button = (Button)sender;
-                int id = ((ParticipantsBox)(((Border)button.Parent).Parent)).ID;
-                World.WorldInstance.TeamDictionary.RemoveByID(id);
+                if (c is ScrollViewer)
+                {
+                    ScrollViewer sv = (ScrollViewer)c;
+                    StackPanel sc = (StackPanel)sv.Content;
+                    if (sc.Name == "TournamentParticipantsList")
+                    {
+                        stackPanel.Children.Remove(this);
+                        sc.Children.Add(this);
+                    }
+                }
             }
         }
     }

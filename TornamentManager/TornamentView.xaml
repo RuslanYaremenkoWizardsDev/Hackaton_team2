@@ -82,27 +82,12 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="AllParticipantsNamesDGrid" Grid.Column="0">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="All participants"/>
-                            <DataGridTemplateColumn Header="Action">
-                                <DataGridTemplateColumn.CellTemplateSelector>
-                                    <DataTemplateSelector/>
-                                </DataGridTemplateColumn.CellTemplateSelector>
-                                <DataGridTemplateColumn.CellEditingTemplateSelector>
-                                    <DataTemplateSelector/>
-                                </DataGridTemplateColumn.CellEditingTemplateSelector>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-
-                    </DataGrid>
-                    <DataGrid x:Name="TournamentParticipantsNamesDGrid" Grid.Column="1">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Tournament participants"/>
-                            <DataGridTextColumn Header="Action"/>
-                        </DataGrid.Columns>
-
-                    </DataGrid>
+                    <ScrollViewer  Grid.Column="0">
+                        <StackPanel x:Name="AllParticipantsList" Background="#FFE2E2E2" Margin="2,2,2,2"/>
+                    </ScrollViewer>
+                    <ScrollViewer  Grid.Column="1">
+                        <StackPanel x:Name="TournamentParticipantsList" Background="#FFE2E2E2" Margin="2,2,2,2"/>
+                    </ScrollViewer>
                 </Grid>
             </TabItem>
             <TabItem Header="Tournament statistics"/>
