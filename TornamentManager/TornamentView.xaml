@@ -77,7 +77,18 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Participants ">
-
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <ScrollViewer  Grid.Column="0">
+                        <StackPanel x:Name="AllParticipantsList" Background="#FFE2E2E2" Margin="2,2,2,2"/>
+                    </ScrollViewer>
+                    <ScrollViewer  Grid.Column="1">
+                        <StackPanel x:Name="TournamentParticipantsList" Background="#FFE2E2E2" Margin="2,2,2,2"/>
+                    </ScrollViewer>
+                </Grid>
             </TabItem>
             <TabItem Header="Tournament statistics"/>
         </TabControl>

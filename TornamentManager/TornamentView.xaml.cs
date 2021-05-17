@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TornamentManager.Participants;
 
 namespace TornamentManager
 {
@@ -56,6 +57,7 @@ namespace TornamentManager
             TournamentLevelsComboBox.SelectedItem = tournament.TournamentLevel;
 
             PrepareNumberOfParticipantsComboBox();
+            ViewAllParticipantsList();
         }
         private void StartDatePicker_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
@@ -181,6 +183,38 @@ namespace TornamentManager
             return TournamentNameTextBox.Text.Length != 0
                && StartDatePicker.Value != null
                && LastRegistrationDatePicker.Value != null;
+        }
+
+        private void ViewAllParticipantsList()
+        {
+            foreach (var team in Tournament.Players)
+            {
+                TournamentParticipantBox participantsBox = new TournamentParticipantBox(team, Tournament);
+                TournamentParticipantsList.Children.Add(participantsBox);
+            }
+
+            foreach (var team in World.WorldInstance.TeamDictionary)
+            {
+                bool flag = true;
+                foreach (var child in TournamentParticipantsList.Children)
+                {
+                    if (((TournamentParticipantBox)child).Particioant.ID == (((ITeamClass)(team)).ID))
+                    {
+                        flag = false;
+                        break;
+                    }
+                }
+
+                if (flag)
+                {
+                    TournamentParticipantBox participantsBox = new TournamentParticipantBox(team, Tournament);
+                    AllParticipantsList.Children.Add(participantsBox);
+                }
+
+                World.WorldInstance.TournamentsList.TriggerListChangedEvent();
+            }
+
+
         }
     }
 }
