@@ -12,7 +12,7 @@ namespace TornamentManager.Participants
     class ParticipantsBox : Grid
     {
         private const int countOfColumn = 2;
-        public ParticipantsBox()
+        public ParticipantsBox(string text)
         {
             Thickness marginThickness = new Thickness(2);
             Margin = marginThickness;
@@ -27,7 +27,7 @@ namespace TornamentManager.Participants
             border.BorderThickness = new Thickness(1);
             TextBlock textBlock = new TextBlock();
             textBlock.Name = "Participants";
-            //textBlock.Text = tournament.Name;
+            textBlock.Text = text; //fix
             border.Child = textBlock;
             Grid.SetColumn(border, 0);
             Children.Add(border);
