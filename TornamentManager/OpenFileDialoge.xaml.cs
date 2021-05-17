@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Windows;
 using Microsoft.Win32;
 
@@ -20,7 +19,6 @@ namespace WpfTutorialSamples.Dialogs
             {
 				StreamReader sr = new StreamReader(openFileDialog.FileName);
             }
-
 		}
 	}
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -72,7 +67,7 @@ namespace TornamentManager.Participants
                         Tournament.Players.Add(Particioant);
                         sc.Children.Add(this);
                     }
-                    else if(sc.Name == "AllParticipantsList" && stackPanel.Name == "TournamentParticipantsList")
+                    else if (sc.Name == "AllParticipantsList" && stackPanel.Name == "TournamentParticipantsList")
                     {
                         stackPanel.Children.Remove(this);
                         Tournament.Players.Remove(Particioant);

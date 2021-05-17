@@ -1,21 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using TornamentManager.AutorizationLogic;
-using TornamentManager.Tornament;
 
 
-namespace TornamentManager 
+namespace TornamentManager
 {
     /// <summary>
     /// Логика взаимодействия для AuthorizationForm.xaml
@@ -23,7 +12,7 @@ namespace TornamentManager
 
     public partial class AuthorizationForm : Window
     {
-        
+
         Autorization autorization = new Autorization();
         bool _isBtnSignUpPressed = false;
         private MainWindow _mainwindow;
@@ -39,7 +28,8 @@ namespace TornamentManager
                 _mainwindow = value;
                 _isPassChange = MainWindow.isPassChange;
             }
-        }   
+        }
+
         public IActiveUser ActiveUser { get; private set; }
 
         public AuthorizationForm()
@@ -55,7 +45,7 @@ namespace TornamentManager
 
         private void SignUp_btn_Click(object sender, RoutedEventArgs e)
         {
-            if (!_isBtnSignUpPressed )
+            if (!_isBtnSignUpPressed)
             {
                 Confirm_lable.Opacity = 100;
                 Confirm_passwordBox.Opacity = 100;
@@ -66,7 +56,6 @@ namespace TornamentManager
                 Login_textBox.Background = Brushes.White;
                 Password_passwordBox.Background = Brushes.White;
                 Confirm_passwordBox.Background = Brushes.White;
-                
             }
             else
             {
@@ -78,7 +67,7 @@ namespace TornamentManager
                 {
                     Login_textBox.Background = Brushes.White;
                 }
-                if(!autorization.validatePassword(Password_passwordBox.Password))
+                if (!autorization.validatePassword(Password_passwordBox.Password))
                 {
                     Password_passwordBox.Background = Brushes.Red;
                 }
@@ -94,7 +83,7 @@ namespace TornamentManager
                 {
                     Confirm_passwordBox.Background = Brushes.White;
                 }
-                if(autorization.validateLogin(Login_textBox.Text) && autorization.validatePassword(Password_passwordBox.Password) && Password_passwordBox.Password == Confirm_passwordBox.Password)
+                if (autorization.validateLogin(Login_textBox.Text) && autorization.validatePassword(Password_passwordBox.Password) && Password_passwordBox.Password == Confirm_passwordBox.Password)
                 {
                     autorization.CreateUser(Login_textBox.Text, Password_passwordBox.Password, EUserPrivileges.Admin);
 
@@ -108,8 +97,9 @@ namespace TornamentManager
                     Confirm_passwordBox.Background = Brushes.White;
                     OldPass_passwordBox.Background = Brushes.White;
                     Cancel_btn_Click(sender, e);
-                }   
+                }
             }
+
             _isBtnSignUpPressed = true;
         }
 
@@ -167,20 +157,20 @@ namespace TornamentManager
             {
                 Confirm_passwordBox.Background = Brushes.White;
             }
-            if(OldPass_passwordBox.Password != World.WorldInstance.ActiveUser.Password)
+            if (OldPass_passwordBox.Password != World.WorldInstance.ActiveUser.Password)
             {
                 OldPass_passwordBox.Background = Brushes.Red;
             }
-            else if(OldPass_passwordBox.Password == World.WorldInstance.ActiveUser.Password)
+            else if (OldPass_passwordBox.Password == World.WorldInstance.ActiveUser.Password)
             {
                 OldPass_passwordBox.Background = Brushes.White;
             }
-            if(autorization.validateLogin(Login_textBox.Text) && 
-               autorization.validatePassword(Password_passwordBox.Password) && 
+            if (autorization.validateLogin(Login_textBox.Text) &&
+               autorization.validatePassword(Password_passwordBox.Password) &&
                (Password_passwordBox.Password == Confirm_passwordBox.Password) &&
                (OldPass_passwordBox.Password == World.WorldInstance.ActiveUser.Password))
             {
-                autorization.ChangeUserPassword(Login_textBox.Text, OldPass_passwordBox.Password, Password_passwordBox.Password) ;
+                autorization.ChangeUserPassword(Login_textBox.Text, OldPass_passwordBox.Password, Password_passwordBox.Password);
                 OldPass_label.Opacity = 0;
                 OldPass_passwordBox.Opacity = 0;
                 Change_btn.Opacity = 0;
@@ -212,9 +202,9 @@ namespace TornamentManager
             {
                 Password_passwordBox.Background = Brushes.White;
             }
-            if (autorization.validateLogin(Login_textBox.Text) && autorization.validatePassword(Password_passwordBox.Password) )
+            if (autorization.validateLogin(Login_textBox.Text) && autorization.validatePassword(Password_passwordBox.Password))
             {
-                World.WorldInstance.ActiveUser =  autorization.AutorizeUser(Login_textBox.Text, Password_passwordBox.Password);
+                World.WorldInstance.ActiveUser = autorization.AutorizeUser(Login_textBox.Text, Password_passwordBox.Password);
                 if (World.WorldInstance.ActiveUser == null)
                 {
                     Password_passwordBox.Background = Brushes.Red;
@@ -226,7 +216,7 @@ namespace TornamentManager
                     Password_passwordBox.Password = null;
                     Password_passwordBox.Background = Brushes.White;
                     Confirm_passwordBox.Background = Brushes.White;
-                    
+
                     MainWindow.Show();
                     this.Close();
                     MainWindow.UserNameTextBlock.Text = World.WorldInstance.ActiveUser.Login;

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TornamentManager
 {
@@ -10,7 +7,6 @@ namespace TornamentManager
     {
         private string _name;
         private string _description;
-        //private int _numberOfParticipants;
         private ETournamentModes _tournamentMode;
         private static int lastID = 0;
         public int ID { get; private set; }
@@ -73,16 +69,13 @@ namespace TornamentManager
 
         public TournamentBase(string name, ETournamentModes tournamentMode, int numberOfParticipants)
         {
-
             lastID++;
             ID = lastID;
             _name = name;
             _tournamentMode = tournamentMode;
 
             Players = new List<ITeamClass>();
-
             Games = new List<IGameClass>();
-
 
             if (tournamentMode == ETournamentModes.Championship)
             {

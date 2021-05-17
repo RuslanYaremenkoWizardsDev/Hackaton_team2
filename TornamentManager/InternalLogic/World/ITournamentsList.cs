@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace TornamentManager
 {
@@ -15,7 +10,6 @@ namespace TornamentManager
         event ITournamentEvent TournamentAdded;
         event VoidEvent TournamentRemoved;
         event VoidEvent TournamentListChanged;
-
 
         void AddTournament(ITournament tournament);
         void RemoveTournamentByID(int ID);

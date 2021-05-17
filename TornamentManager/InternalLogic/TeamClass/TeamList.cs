@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TornamentManager
 {
     public class TeamList : ITeamList
-
     {
         private IList<ITeamClass> _teamList;
         public void AddTeam(ITeamClass team)
@@ -23,7 +18,7 @@ namespace TornamentManager
 
         public bool IsteamInvated(ITeamClass team)
         {
-           return _teamList.Contains(team);
+            return _teamList.Contains(team);
         }
 
         public void RemoveTeam(ITeamClass team)

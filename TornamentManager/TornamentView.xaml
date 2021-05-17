@@ -92,5 +92,6 @@
             </TabItem>
             <TabItem Header="Tournament statistics"/>
         </TabControl>
+        
     </Grid>
 </Window>

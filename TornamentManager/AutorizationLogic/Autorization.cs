@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TornamentManager.AutorizationLogic
 {
@@ -16,7 +13,7 @@ namespace TornamentManager.AutorizationLogic
             LoadUsers(sr);
             sr.Close();
         }
-         ~Autorization()
+        ~Autorization()
         {
             StreamWriter sw = new StreamWriter("AutorizationLogic/AutorizationData.txt");
             SaveUsers(sw);
@@ -122,7 +119,6 @@ namespace TornamentManager.AutorizationLogic
                 return null;
             }
         }
-
         public void LoadUsers(StreamReader streamReader)
         {
             usersList.Clear();
@@ -151,10 +147,10 @@ namespace TornamentManager.AutorizationLogic
 
         public bool validateLogin(string login)
         {
-            if( universalValidate(login))
+            if (universalValidate(login))
 
             {
-                if (login.Length>=1)
+                if (login.Length >= 1)
                 {
                     return true;
                 }
@@ -167,7 +163,6 @@ namespace TornamentManager.AutorizationLogic
             {
                 return false;
             }
-            
         }
 
         public bool validatePassword(string password)
@@ -200,8 +195,8 @@ namespace TornamentManager.AutorizationLogic
                 "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"
             };
             bool allCharsAllowed = true;
-            
-            if (str!=null && str.Length<=12)
+
+            if (str != null && str.Length <= 12)
             {
                 for (int i = 0; i <= str.Length - 1; i++)
                 {
@@ -217,7 +212,7 @@ namespace TornamentManager.AutorizationLogic
             else
             {
                 return false;
-            }  
+            }
         }
     }
 }

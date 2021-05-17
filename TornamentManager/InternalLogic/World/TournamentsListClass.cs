@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TornamentManager
 {
@@ -27,13 +22,12 @@ namespace TornamentManager
 
         void ITournamentsList.AddTournament(ITournament tournament)
         {
-            if (tournament!=null)
+            if (tournament != null)
             {
                 _tournaments.Add(tournament);
                 TournamentAdded?.Invoke(tournament);
                 TournamentListChanged?.Invoke();
             }
-            
         }
 
         IEnumerator<ITournament> IEnumerable<ITournament>.GetEnumerator()
@@ -55,6 +49,7 @@ namespace TornamentManager
                     return item;
                 }
             }
+
             return null;
         }
 

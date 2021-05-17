@@ -1,18 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using TornamentManager.Tornament;
 
 namespace TornamentManager
 {
@@ -46,18 +36,17 @@ namespace TornamentManager
             PrepareTournamentScenariosComboBoxItems();
         }
 
-        private bool skipEvent = false;
         private void StartDatePicker_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             LastRegistrationDatePicker.Maximum = ((DateTime)StartDatePicker.Value).AddSeconds(2);
             LastRegistrationDatePicker.Minimum = DateTime.Now;
             LastRegistrationDatePicker.DefaultValue = ((DateTime)StartDatePicker.Value).AddSeconds(1);
 
-            if (!skipEvent)
+            if (!_skipEvent)
             {
-                skipEvent = true;
+                _skipEvent = true;
                 StartDatePicker.Value = ((DateTime)StartDatePicker.Value).AddSeconds(2);
-                skipEvent = false;
+                _skipEvent = false;
             }
             if (StartDatePicker.Value != null && !LastRegistrationDatePicker.IsEnabled)
             {

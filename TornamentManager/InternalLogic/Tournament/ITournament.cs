@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TornamentManager
 {
@@ -16,7 +13,6 @@ namespace TornamentManager
         string Place { get; set; }
         DateTime StartDateTime { get; set; }
         DateTime LastRegistrationDateTime { get; set; }
-
         ETournamentLevel TournamentLevel { get; set; }
 
         int NumberOfParticipants { get; set; }

@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TornamentManager
+﻿namespace TornamentManager
 {
     class TeamClass : ITeamClass
     {
         private static int _lastID = 0;
         private string _name;
+
         string ITeamClass.Name
         {
             get => _name;
@@ -17,7 +12,6 @@ namespace TornamentManager
             {
                 _name = value;
             }
-
         }
 
         public int ID { get; private set; }
