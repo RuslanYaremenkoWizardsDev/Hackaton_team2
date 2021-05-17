@@ -13,6 +13,11 @@ namespace TornamentManager
 
         public ITournament Tournament { get; }
 
+        public EGameState GameState { get; set; }
+
+        
+
+
 
 
     }

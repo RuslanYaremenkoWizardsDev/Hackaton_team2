@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace TornamentManager
 {
-    public enum EGameState
+   public enum EGameResult
     {
-        Unplayed = 1,
-        InProgress = 2,
-        Finished = 3,
-        Canceled = 4
+        FirstTeamWon =1,
+        SecondTeamWon=2,
+        Draw=3
     }
 }
