@@ -16,5 +16,7 @@ namespace TornamentManager
         public EGameState GameState { get; set; }
 
         public EGameResult GameResult { get; set; }
+
+        public int ID { get; }
     }
 }
