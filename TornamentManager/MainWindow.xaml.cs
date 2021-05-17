@@ -39,7 +39,7 @@ namespace TornamentManager
                 authorizationForm.Show();
             }
             _isAutorizationStarted = true;
-            
+
         }
 
         private void TeamDictionary_TeamListChanged()
@@ -77,7 +77,7 @@ namespace TornamentManager
         private void ChangePassButton_Click(object sender, RoutedEventArgs e)
         {
             isPassChange = true;
-            MainForm.Visibility=Visibility.Hidden;
+            MainForm.Visibility = Visibility.Hidden;
             authorizationForm = new AuthorizationForm();
             authorizationForm.MainWindow = this;
             authorizationForm.Show();
@@ -94,9 +94,12 @@ namespace TornamentManager
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            ITeamClass participant = new TeamClass(ParticipantNameTextBox.Text);
-            World.WorldInstance.TeamDictionary.AddTeam(participant);
-            ParticipantNameTextBox.Clear();
+            if (ParticipantNameTextBox.Text.Length != 0)
+            {
+                ITeamClass participant = new TeamClass(ParticipantNameTextBox.Text);
+                World.WorldInstance.TeamDictionary.AddTeam(participant);
+                ParticipantNameTextBox.Clear();
+            }
         }
     }
 }
