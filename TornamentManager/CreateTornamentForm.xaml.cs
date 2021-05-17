@@ -46,17 +46,18 @@ namespace TornamentManager
             PrepareTournamentScenariosComboBoxItems();
         }
 
+        private bool skipEvent = false;
         private void StartDatePicker_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             LastRegistrationDatePicker.Maximum = ((DateTime)StartDatePicker.Value).AddSeconds(2);
             LastRegistrationDatePicker.Minimum = DateTime.Now;
             LastRegistrationDatePicker.DefaultValue = ((DateTime)StartDatePicker.Value).AddSeconds(1);
 
-            if (!_skipEvent)
+            if (!skipEvent)
             {
-                _skipEvent = true;
+                skipEvent = true;
                 StartDatePicker.Value = ((DateTime)StartDatePicker.Value).AddSeconds(2);
-                _skipEvent = false;
+                skipEvent = false;
             }
             if (StartDatePicker.Value != null && !LastRegistrationDatePicker.IsEnabled)
             {

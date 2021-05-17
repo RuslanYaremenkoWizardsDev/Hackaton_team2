@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TornamentManager.Tornament;
+using TornamentManager.Participants;
 
 namespace TornamentManager
 {
@@ -29,6 +30,7 @@ namespace TornamentManager
         {
             InitializeComponent();
             World.WorldInstance.TournamentsList.TournamentListChanged += TournamentsList_TournamentListChanged;
+            World.WorldInstance.TeamDictionary.TeamListChanged += TeamDictionary_TeamListChanged;
 
             authorizationForm.MainWindow = this;
             if (!_isAutorizationStarted)
@@ -37,7 +39,17 @@ namespace TornamentManager
                 authorizationForm.Show();
             }
             _isAutorizationStarted = true;
-            
+
+        }
+
+        private void TeamDictionary_TeamListChanged()
+        {
+            ParticipantsList.Children.Clear();
+            foreach (var participants in World.WorldInstance.TeamDictionary)
+            {
+                ParticipantsBox participantsBox = new ParticipantsBox(participants);
+                ParticipantsList.Children.Add(participantsBox);
+            }
         }
 
         private void TournamentsList_TournamentListChanged()
@@ -78,6 +90,16 @@ namespace TornamentManager
             authorizationForm.SignUp_btn.Opacity = 0;
             authorizationForm.Change_btn.Opacity = 100;
             authorizationForm.Cancel_btn.Opacity = 100;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (ParticipantNameTextBox.Text.Length != 0)
+            {
+                ITeamClass participant = new TeamClass(ParticipantNameTextBox.Text);
+                World.WorldInstance.TeamDictionary.AddTeam(participant);
+                ParticipantNameTextBox.Clear();
+            }
         }
     }
 }
