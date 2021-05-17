@@ -7,12 +7,19 @@ using System.IO;
 
 namespace TornamentManager
 {
-    interface ITeamDictionary
+    public interface ITeamDictionary:IEnumerable<ITeamClass>
     {
         void LoadFromFile(StreamReader streamReader);
 
         void SaveToFile(StreamWriter streamWriter);
-
-        IList<ITeamClass> TeamList { get; }
+        void AddTeam(ITeamClass team);
+        void RemoveByID(int ID);
+        ITeamClass GetTeamByID(int ID);
+        void TriggerListChangeEvent();
+        public delegate void ITeamEvent(ITeamClass team);
+        public delegate void VoidEvent();
+        public event ITeamEvent TeamAdded;
+        public event VoidEvent TTeamRemoved;
+        public event VoidEvent TeamListChanged;
     }
 }

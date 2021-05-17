@@ -8,6 +8,7 @@ namespace TornamentManager
 {
     class TeamClass : ITeamClass
     {
+        private static int _lastID = 0;
         private string _name;
         string ITeamClass.Name
         {
@@ -19,9 +20,13 @@ namespace TornamentManager
 
         }
 
+        public int ID { get; private set; }
+
         public TeamClass(string name)
         {
             _name = name;
+            _lastID++;
+            ID = _lastID;
         }
     }
 }
