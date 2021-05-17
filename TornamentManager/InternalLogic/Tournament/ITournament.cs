@@ -8,6 +8,7 @@ namespace TornamentManager
 {
     public interface ITournament
     {
+        public TeamDictionary TeamList { get; }
         string Name { get; set; }
         string Description { get; set; }
         int ID { get; }
