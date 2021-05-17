@@ -13,9 +13,12 @@ namespace TornamentManager.Participants
     {
         private const int countOfColumn = 2;
         public int ID { get; private set; }
+
+        ITeamClass Particioant;
         public ParticipantsBox(ITeamClass participant)
         {
             ID = participant.ID;
+            Particioant = participant;
             Thickness marginThickness = new Thickness(2);
             Margin = marginThickness;
 

@@ -187,11 +187,34 @@ namespace TornamentManager
 
         private void ViewAllParticipantsList()
         {
-            foreach(var team in World.WorldInstance.TeamDictionary)
+            foreach (var team in Tournament.Players)
             {
-                TournamentParticipantBox participantsBox = new TournamentParticipantBox(team);
-                AllParticipantsList.Children.Add(participantsBox);
+                TournamentParticipantBox participantsBox = new TournamentParticipantBox(team, Tournament);
+                TournamentParticipantsList.Children.Add(participantsBox);
             }
+
+            foreach (var team in World.WorldInstance.TeamDictionary)
+            {
+                bool flag = true;
+                foreach (var child in TournamentParticipantsList.Children)
+                {
+                    if (((TournamentParticipantBox)child).Particioant.ID == (((ITeamClass)(team)).ID))
+                    {
+                        flag = false;
+                        break;
+                    }
+                }
+
+                if (flag)
+                {
+                    TournamentParticipantBox participantsBox = new TournamentParticipantBox(team, Tournament);
+                    AllParticipantsList.Children.Add(participantsBox);
+                }
+
+                World.WorldInstance.TournamentsList.TriggerListChangedEvent();
+            }
+
+
         }
     }
 }

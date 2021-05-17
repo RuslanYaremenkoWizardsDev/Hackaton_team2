@@ -11,11 +11,16 @@ namespace TornamentManager.Participants
 {
     public class TournamentParticipantBox : Grid, IParticipantBox
     {
+        public ITournament Tournament;
+        public ITeamClass Particioant;
+
         private const int countOfColumn = 2;
         public int ID { get; private set; }
 
-        public TournamentParticipantBox(ITeamClass participant)
+        public TournamentParticipantBox(ITeamClass participant, ITournament tournament)
         {
+            Tournament = tournament;
+            Particioant = participant;
             ID = participant.ID;
             Thickness marginThickness = new Thickness(2);
             Margin = marginThickness;
@@ -61,9 +66,16 @@ namespace TornamentManager.Participants
                 {
                     ScrollViewer sv = (ScrollViewer)c;
                     StackPanel sc = (StackPanel)sv.Content;
-                    if (sc.Name == "TournamentParticipantsList")
+                    if (sc.Name == "TournamentParticipantsList" && stackPanel.Name == "AllParticipantsList")
                     {
                         stackPanel.Children.Remove(this);
+                        Tournament.Players.Add(Particioant);
+                        sc.Children.Add(this);
+                    }
+                    else if(sc.Name == "AllParticipantsList" && stackPanel.Name == "TournamentParticipantsList")
+                    {
+                        stackPanel.Children.Remove(this);
+                        Tournament.Players.Remove(Particioant);
                         sc.Children.Add(this);
                     }
                 }

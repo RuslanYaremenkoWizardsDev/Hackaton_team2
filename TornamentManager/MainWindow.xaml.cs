@@ -92,7 +92,7 @@ namespace TornamentManager
             authorizationForm.Cancel_btn.Opacity = 100;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_AddParticipantButton_Click(object sender, RoutedEventArgs e)
         {
             if (ParticipantNameTextBox.Text.Length != 0)
             {
