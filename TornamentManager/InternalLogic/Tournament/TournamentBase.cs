@@ -14,6 +14,7 @@ namespace TornamentManager
         private ETournamentModes _tournamentMode;
         private static int lastID = 0;
         public int ID { get; private set; }
+        public TeamDictionary TeamList { get; private set; }
 
         string ITournament.Name
         {
