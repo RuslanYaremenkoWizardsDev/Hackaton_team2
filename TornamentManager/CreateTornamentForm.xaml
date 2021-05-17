@@ -22,12 +22,12 @@
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0">
             <TextBlock Text="Tornament Name:"  DockPanel.Dock="Top"/>
-            <TextBox x:Name="TournamentName" DockPanel.Dock="Bottom" TextWrapping="Wrap" MaxLength="255"/>
+            <TextBox x:Name="TournamentName" DockPanel.Dock="Bottom" TextWrapping="Wrap" MaxLength="255" Background="#FFE2E2E2"/>
         </DockPanel>
         <DockPanel Grid.Row ="1">
             <TextBlock DockPanel.Dock="Top" Text="Tornament Description"/>
             <ScrollViewer DockPanel.Dock="Bottom">
-                <TextBox x:Name="TournamentDescription" MaxLength="10000" TextWrapping="Wrap"/>
+                <TextBox x:Name="TournamentDescription" MaxLength="10000" TextWrapping="Wrap" Background="#FFE2E2E2"/>
             </ScrollViewer>
         </DockPanel>
         <DockPanel Grid.Row="2" >
@@ -43,7 +43,7 @@
         </DockPanel>
         <DockPanel Grid.Row="3">
             <TextBlock Text="Place"  DockPanel.Dock="Top"/>
-            <TextBox x:Name="TournamentPlace" DockPanel.Dock="Bottom" TextWrapping="Wrap"/>
+            <TextBox x:Name="TournamentPlace" DockPanel.Dock="Bottom" TextWrapping="Wrap" Background="#FFE2E2E2"/>
         </DockPanel>
 
         <DockPanel Grid.Row="4">
