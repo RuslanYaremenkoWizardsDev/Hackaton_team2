@@ -64,7 +64,7 @@ namespace TornamentManager
         ETournamentLevel ITournament.TournamentLevel { get; set; }
         int ITournament.NumberOfParticipants { get; set; }
         ETournamentScenarios ITournament.Scenario { get; set; }
-        IList<ITeamClass> ITournament.Players { get; }
+        IList<IParticipantClass> ITournament.Players { get; }
 
         IList<IGameClass> ITournament.Games
         {

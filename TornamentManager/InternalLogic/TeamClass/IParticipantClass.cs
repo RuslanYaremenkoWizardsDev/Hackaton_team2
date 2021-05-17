@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace TornamentManager
 {
-    public interface ITeamClass
+    public interface IParticipantClass
     {
         string Name { get; set; }
+        int ID { get; }
     }
 }

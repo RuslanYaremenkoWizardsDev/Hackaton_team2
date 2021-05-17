@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace TornamentManager
 {
-    class TeamClass : ITeamClass
+    class ParticipantClass : IParticipantClass
     {
+        private static int _lastID = 0;
         private string _name;
-        string ITeamClass.Name
+        string IParticipantClass.Name
         {
             get => _name;
             set
@@ -19,9 +20,13 @@ namespace TornamentManager
 
         }
 
-        public TeamClass(string name)
+        public int ID { get; private set; }
+
+        public ParticipantClass(string name)
         {
             _name = name;
+            _lastID++;
+            ID = _lastID;
         }
     }
 }

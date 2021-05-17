@@ -22,7 +22,7 @@ namespace TornamentManager
 
         ETournamentScenarios Scenario { get; set; }
 
-        IList<ITeamClass> Players { get; }
+        IList<IParticipantClass> Players { get; }
 
         IList<IGameClass> Games { get; }
 

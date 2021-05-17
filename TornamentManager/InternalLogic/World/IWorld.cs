@@ -13,7 +13,7 @@ namespace TornamentManager
         public ITournamentsList TournamentsList { get; }
         
 
-        public TeamDictionary TeamDictionary { get; }
+        public ParticipantsDictionary TeamDictionary { get; }
 
         public IActiveUser ActiveUser { get; set; }
     }
